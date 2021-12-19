@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--<style>
+        body {
+            margin: 0;
+            box-sizing: border-box;
+            background-color: #eee;
+        }
+
+        main {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+        }
+
+        main .head-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-color: white;
+            box-shadow: 0 0 11px rgba(0, 0, 0, .2);
+        }
+
+        main .body-page {
+            width: 100%;
+            margin-top: calc(180px + 3vh);
+            margin-bottom: 170px;
+        }
+
+        main .edit-page {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-color: white;
+            box-shadow: 0 0 11px rgba(0, 0, 0, .2);
+        }
+
+        main .body-main {
+            min-width: 390px;
+            max-width: 500px;
+            width: 85%;
+            height: 500px;
+            margin: 20px auto;
+            background-color: white;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+            border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
+        }
+
+        @media screen and (min-width: 1200px) {
+            main {
+                display: flex;
+                flex: auto;
+            }
+
+            main .head-page {
+                position: none;
+                width: 290px;
+                height: 100%;
+            }
+
+            main .body-page {
+                margin-top: 100px;
+                margin-bottom: 0;
+            }
+
+            main .body-main {
+                min-width: 490px;
+                max-width: 600px;
+                width: 85%;
+                height: 600px;
+            }
+
+            main .edit-page {
+                position: fixed;
+                right: 0;
+                bottom: auto;
+                left: auto;
+                width: calc(300px + 5vw);
+                height: 100%;
+            }
+        }
+    </style>
+
+    <main>
+        <div class="head-page">
+            Head
+        </div>
+        <div class="body-page">
+            <div class="body-main">
+                Body
+            </div>
+        </div>
+        <div class="edit-page">
+            Edit
+        </div>
+    </main>-->
+
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition-property: opacity;
+            transition-duration: 2s;
+            transition-timing-function: cubic-bezier(0.5, 0.2, 0.9, 0.4);
+        }
+
+        .fade-in {
+            -webkit-animation: fadein .2s;
+            /* Safari, Chrome and Opera > 12.1 */
+            -moz-animation: fadein .2s;
+            /* Firefox < 16 */
+            -ms-animation: fadein .2s;
+            /* Internet Explorer */
+            -o-animation: fadein .2s;
+            /* Opera < 12.1 */
+            animation: fadein .2s;
+        }
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Firefox < 16 */
+        @-moz-keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Safari, Chrome and Opera > 12.1 */
+        @-webkit-keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Internet Explorer */
+        @-ms-keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Opera < 12.1 */
+        @-o-keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+
+        .err0x0,
+        .err0x1 {
+            width: 80%;
+            max-width: 400px;
+            min-width: 100px;
+            background-color: paleturquoise;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+            border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
+            margin: 20px auto;
+        }
+
+        .err0x0 h2,
+        .err0x1 h2 {
+            margin: 0px;
+            font-size: 20px;
+            padding: 25px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 100;
+            color: #121213;
+        }
+
+        .err0x0 button,
+        .err0x1 button {
+            padding: 9px 18px;
+            border: 0;
+            outline: 0;
+            background-color: rgba(0, 0, 0, .2);
+            border-radius: .21rem;
+            margin: 30px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 14px;
+            color: rgba(19, 19, 19, 0.774);
+        }
+
+        .err0x1 mark {
+            padding: 2px;
+            border-radius: .3rem;
+            background-color: rgba(0, 0, 0, .12);
+        }
+
+        .err0x0 button:hover {
+            background-color: rgba(0, 0, 0, .12);
+        }
+
+        .editor {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            width: 100%;
+            height: 100%;
+            overflow-y: scroll;
+            background-image: url(img1x2.jpg);
+            background-color: rgba(0, 0, 0, .2);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .editor .welcome {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .42);
+        }
+
+        .editor .welcome-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            display: flex;
+            min-width: 300px;
+            max-width: 600px;
+            height: 400px;
+            background-color: white;
+            color: #333;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+        }
+
+        .editor .welcome .left {
+            float: left;
+            padding: 22px;
+        }
+
+        .editor .welcome .left .logo {
+            width: 70px;
+            height: 70px;
+            background-color: wheat;
+            background-image: url(img1x3.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
+        }
+
+        .editor .welcome .left h3 {
+            font-weight: 500;
+            font-size: 23px;
+            margin: 20px 0;
+        }
+
+        .editor .welcome .left p {
+            font-size: 13px;
+            margin-bottom: 29px;
+        }
+
+        .editor .welcome .left span {
+            position: absolute;
+            bottom: 0;
+            padding: 20px 4px;
+            animation: 2s welcome-loadbar infinite linear;
+            transition: all 1s ease-in-out;
+        }
+
+        @keyframes welcome-loadbar {
+            from {
+                opacity: .2;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .editor .welcome .right {
+            float: right;
+            width: 40%;
+            height: 100%;
+            background-color: wheat;
+            background-image: url(img1x1.jpg);
+            background-size: cover;
+        }
+
+        .editor .main {
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow: scroll;
+            width: 100%;
+            height: 100%;
+            animation: open-page 1s;
+            background-color: #eee;
+        }
+
+        .main .headbar {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, .9);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+            z-index: 100;
+        }
+
+        .main .headbar .left {
+            width: 100%;
+        }
+
+        .main .headbar .left h2 {
+            margin: 0;
+            padding: 12px 16px;
+            font-weight: 500;
+            user-select: none;
+        }
+
+        .main .headbar .right {
+            width: 100%;
+            background-color: #6c757d;
+            margin: auto;
+        }
+
+        .main .headbar .right button {
+            background-color: transparent;
+            color: white;
+            margin: 9px 16px;
+            border: 0;
+            outline: 0;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .main .headbar .right button:hover {
+            background-color: rgba(0, 0, 0, .092);
+        }
+
+        .main .canvasbody {
+            width: 90%;
+            max-width: 400px;
+            min-width: 300px;
+            height: 400px;
+            background-color: white;
+            margin: 50px auto;
+            border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+            margin-bottom: 260px;
+            overflow-y: scroll;
+        }
+
+        .main .editbox {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 250px;
+            background-color: white;
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+            box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+            z-index: 100;
+        }
+
+        .main .editbox .grid {
+            display: flex;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            overflow-x: scroll;
+            background-color: #6c757d;
+        }
+
+        .main .editbox .grid button {
+            padding: 10px 25px;
+            margin: 12px;
+            max-width: 100px;
+            color: #fff;
+            outline: 0;
+            border: 0;
+            text-align: center;
+            border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
+            background: transparent;
+        }
+
+        .main .editbox .grid button:hover {
+            background-color: rgba(0, 0, 0, .082);
+        }
+
+        .main .editbox .grid button:active,
+        .main .editbox .grid button.active {
+            background-color: rgba(0, 0, 0, .12);
+        }
+
+        .main .editbox .grid button sup {
+            display: block;
+        }
+
+        .main .editbox .grid button:first-child {
+            margin-left: 23px;
+        }
+
+        .main .editbox .grid button:last-child {
+            margin-right: 23px;
+        }
+
+        .main .editbox .grid button sup {
+            font-style: none;
+        }
+
+        .main .editbox .ctrl {
+            width: 100%;
+            padding: 15px 22px;
+        }
+
+        .main .editbox .ctrl-s {
+            border: 1px dotted;
+            padding: 4px;
+            width: 50%;
+        }
+
+        .main .editbox #ctrl-s {
+            appearance: none;
+            -moz-appearance: none;
+            background-color: transparent;
+            border: none;
+            padding: 0 1em 0 0;
+            margin: 0;
+            width: 100%;
+            font-family: inherit;
+            font-size: inherit;
+            cursor: inherit;
+            line-height: inherit;
+        }
+
+        select::-ms-expand {
+            display: none;
+        }
+
+        .main .addnew {
+            position: fixed;
+            right: 40px;
+            bottom: 230px;
+            z-index: 111;
+            width: 55px;
+            height: 55px;
+            background-color: #6c757d;
+            border-radius: 10rem;
+            color: #ffffff;
+        }
+
+        .main .addnew svg {
+            transform: scale(2.1) translate(-90%, -90%);
+            margin-left: 90%;
+            margin-top: 90%;
+        }
+
+        .main .addnewbox,
+        .main .idset {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .2);
+            z-index: 120;
+        }
+
+        .main .addnewbox>div {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(.8);
+            width: 90%;
+            max-width: 500px;
+            height: 480px;
+            background-color: #fff;
+            border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
+            box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+        }
+
+        .main .idset>div {
+            position: fixed;
+            left: 50%;
+            bottom: 40px;
+            transform: translate(-50%) scale(.8);
+            width: 90%;
+            max-width: 500px;
+            padding-bottom: 10px;
+            background-color: #fff;
+            border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
+            box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+        }
+
+        .main .addnewbox h2,
+        .main .idset h2 {
+            margin: 0;
+            padding: 16px 20px;
+            padding-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .main .idset input {
+            outline: none;
+            margin: 10px 20px;
+            background-color: #ffffff;
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            box-shadow: rgba(225, 228, 232, 0.2) 0px 1px 0px 0px inset;
+            font-size: 14px;
+            line-height: 20px;
+            color: #24292e;
+            vertical-align: middle;
+            padding: 5px 12px;
+        }
+
+        .main .addnewbox p {
+            margin: 17px 0px;
+            margin-top: 4px;
+            padding-left: 19px;
+            font-size: 14px;
+            color: grey;
+        }
+
+        .main .addnewbox .item {
+            padding: 3px 19px;
+            width: 90%;
+            margin: auto;
+            height: 300px;
+            overflow-y: scroll;
+            user-select: none;
+        }
+
+        .main .addnewbox .item div {
+            display: flex;
+            min-height: 52px;
+            background-color: rgba(0, 0, 0, 0.015);
+            margin-bottom: 10px;
+        }
+
+        .main .addnewbox .item div.select {
+            background-color: rgba(108, 117, 125, 0.239);
+        }
+
+        .main .addnewbox .item div p {
+            padding: 0 20px;
+            margin-top: 10px;
+            font-size: 17px;
+            color: #333;
+            min-width: 100px;
+        }
+
+        .main .addnewbox .item div img {
+            min-width: 60px;
+            max-width: 60px;
+            min-height: 40px;
+            object-fit: scale-down;
+            border-right: 1px dotted rgba(3, 107, 3, 0.322);
+        }
+
+        .main .addnewbox .item div span {
+            margin: 10px;
+            color: grey;
+            font-size: 11px;
+        }
+
+        .main .addnewbox .btngroup {
+            display: flex;
+            padding: 20px;
+        }
+
+        .main .addnewbox .btngroup button,
+        .main .idset button {
+            flex-grow: 1;
+            margin-right: 10px;
+            cursor: pointer;
+            outline: none;
+            min-width: 64px;
+            color: #fff;
+            background: #6c757d;
+            border-radius: 4px;
+            box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+            border: none;
+            font-weight: 500;
+            line-height: 1.15;
+            font-size: 14px;
+            height: 36px;
+            word-spacing: 0px;
+            letter-spacing: .0892857143em;
+            text-decoration: none;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 0 16px;
+            transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .main .addnewbox .btngroup button:active {
+            box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+        }
+    </style>
+
+    <div class="err0x0" style="display: none;">
+        <h2>Please use your device that's size is greater than 300x500 pixel for better performace.</h2>
+    </div>
+    <div class="err0x1" style="display: none;">
+        <h2>You are using <mark>Unsupported</mark> Browser. Use supported browser for better performace.
+        </h2>
+    </div>
+
+    <div class="editor" style="display: none;">
+        <div class="welcome">
+            <div class="welcome-box">
+                <div class="left">
+                    <div class="logo"></div>
+                    <h3>Webshop</h3>
+                    <p>&copy; 2021-2022 Ubeyin, All rights reserved.<br /><br />Artwork by Mohammad Sefatullah<br />For
+                        more
+                        info and notices, go to the About section of this website. <br /><br />Current version is 1.0
+                    </p>
+                    <span>Initializing...</span>
+                </div>
+                <div class="right"></div>
+            </div>
+        </div>
+
+        <div class="main" style="display: none;">
+            <div class="headbar">
+                <div class="left">
+                    <h2>Webshop</h2>
+                </div>
+                <div class="right">
+                    <button>File</button>
+                    <button>Edit</button>
+                    <button>Filter</button>
+                    <button>Help</button>
+                    <button>Settings</button>
+                </div>
+            </div>
+
+            <div class="canvasbody">
+                <div class="body">
+                    <button>click on me</button>
+                </div>
+            </div>
+
+            <div class="addnew"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-plus-lg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+                </svg></div>
+
+            <div class="addnewbox fade-in" style="display: none;">
+                <div>
+                    <h2>Add new item</h2>
+                    <p>Create new tags and customize them by any tools quickly.</p>
+                    <div class="item">
+                        <h3>Texting</h3>
+                        <div>
+                            <img src="img_texting.png" alt="">
+                            <p>Header</p>
+                            <span>A group of heading tags used to create heading in a webpage</span>
+                        </div>
+                        <div>
+                            <img src="img_texting.png" alt="">
+                            <p>Paragraph</p>
+                            <span>The paragraph in a webpage</span>
+                        </div>
+                        <h3>Imaging</h3>
+                        <div>
+                            <img src="img_imaging.png" alt="">
+                            <p>Image</p>
+                            <span>Image on webpages</span>
+                        </div>
+                        <div>
+                            <img src="img_imaging.png" alt="">
+                            <p>Canvas</p>
+                            <span>An area to draw something on the webpage using javascript</span>
+                        </div>
+                        <div>
+                            <img src="img_imaging.png" alt="">
+                            <p>SVG</p>
+                            <span>A container for SVG image</span>
+                        </div>
+                        <h3>Printing</h3>
+                        <div>
+                            <img src="img_basic.png" alt="">
+                            <p>Comment</p>
+                            <span>Write comments in HTML documents</span>
+                        </div>
+                        <div>
+                            <img src="img_basic.png" alt="">
+                            <p>Bracket</p>
+                            <span>A hidden line break</span>
+                        </div>
+                        <div>
+                            <img src="img_basic.png" alt="">
+                            <p>Margin</p>
+                            <span>A horizontal line in a webpage</span>
+                        </div>
+
+
+                    </div>
+                    <div class="btngroup">
+                        <button>Select</button>
+                        <button>Cancel</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="idset fade-in" style="display: none;">
+                <div>
+                    <h2>ID Name</h2>
+                    <input type="text" id="idset" placeholder="id">
+                    <button>Create</button>
+                </div>
+            </div>
+
+            <div class="editbox">
+                <div class="ctrl">
+                    <h3>Select layer:</h3>
+                    <div class="ctrl-s">
+                        <select id="ctrl-s">
+                            <option value="0">None</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="grid">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                            <path
+                                d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0z" />
+                        </svg><sup>Property</sup>
+                    </button>
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-view-list" viewBox="0 0 16 16">
+                            <path
+                                d="M3 4.5h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3zM1 2a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 2zm0 12a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 14z" />
+                        </svg><sup>Style</sup>
+                    </button>
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M12.258 3h-8.51l-.083 2.46h.479c.26-1.544.758-1.783 2.693-1.845l.424-.013v7.827c0 .663-.144.82-1.3.923v.52h4.082v-.52c-1.162-.103-1.306-.26-1.306-.923V3.602l.431.013c1.934.062 2.434.301 2.693 1.846h.479L12.258 3z" />
+                        </svg><sup>Text</sup>
+                    </button>
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M2 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM0 2a2 2 0 0 1 3.937-.5h8.126A2 2 0 1 1 14.5 3.937v8.126a2 2 0 1 1-2.437 2.437H3.937A2 2 0 1 1 1.5 12.063V3.937A2 2 0 0 1 0 2zm2.5 1.937v8.126c.703.18 1.256.734 1.437 1.437h8.126a2.004 2.004 0 0 1 1.437-1.437V3.937A2.004 2.004 0 0 1 12.063 2.5H3.937A2.004 2.004 0 0 1 2.5 3.937zM14 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM2 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm12 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                        </svg><sup>Size</sup>
+                    </button>
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M6.192 2.78c-.458-.677-.927-1.248-1.35-1.643a2.972 2.972 0 0 0-.71-.515c-.217-.104-.56-.205-.882-.02-.367.213-.427.63-.43.896-.003.304.064.664.173 1.044.196.687.556 1.528 1.035 2.402L.752 8.22c-.277.277-.269.656-.218.918.055.283.187.593.36.903.348.627.92 1.361 1.626 2.068.707.707 1.441 1.278 2.068 1.626.31.173.62.305.903.36.262.05.64.059.918-.218l5.615-5.615c.118.257.092.512.05.939-.03.292-.068.665-.073 1.176v.123h.003a1 1 0 0 0 1.993 0H14v-.057a1.01 1.01 0 0 0-.004-.117c-.055-1.25-.7-2.738-1.86-3.494a4.322 4.322 0 0 0-.211-.434c-.349-.626-.92-1.36-1.627-2.067-.707-.707-1.441-1.279-2.068-1.627-.31-.172-.62-.304-.903-.36-.262-.05-.64-.058-.918.219l-.217.216zM4.16 1.867c.381.356.844.922 1.311 1.632l-.704.705c-.382-.727-.66-1.402-.813-1.938a3.283 3.283 0 0 1-.131-.673c.091.061.204.15.337.274zm.394 3.965c.54.852 1.107 1.567 1.607 2.033a.5.5 0 1 0 .682-.732c-.453-.422-1.017-1.136-1.564-2.027l1.088-1.088c.054.12.115.243.183.365.349.627.92 1.361 1.627 2.068.706.707 1.44 1.278 2.068 1.626.122.068.244.13.365.183l-4.861 4.862a.571.571 0 0 1-.068-.01c-.137-.027-.342-.104-.608-.252-.524-.292-1.186-.8-1.846-1.46-.66-.66-1.168-1.32-1.46-1.846-.147-.265-.225-.47-.251-.607a.573.573 0 0 1-.01-.068l3.048-3.047zm2.87-1.935a2.44 2.44 0 0 1-.241-.561c.135.033.324.11.562.241.524.292 1.186.8 1.846 1.46.45.45.83.901 1.118 1.31a3.497 3.497 0 0 0-1.066.091 11.27 11.27 0 0 1-.76-.694c-.66-.66-1.167-1.322-1.458-1.847z" />
+                        </svg><sup>Color</sup>
+                    </button>
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z" />
+                            <path
+                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                        </svg><sup>Event</sup>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        setInterval(() => {
+
+            var win = window,
+                doc = document,
+                docElem = doc.documentElement,
+                body = doc.getElementsByTagName('body')[0],
+                x = win.innerWidth || docElem.clientWidth || body.clientWidth,
+                y = win.innerHeight || docElem.clientHeight || body.clientHeight;
+
+            if (x <= 300 || y <= 500) {
+                document.querySelectorAll(".err0x0")[0].style.display = "block";
+                document.querySelectorAll(".editor")[0].style.display = "none";
+            } else {
+                document.querySelectorAll(".err0x0")[0].style.display = "none";
+                document.querySelectorAll(".editor")[0].style.display = "block";
+                setTimeout(() => {
+                    document.querySelectorAll(".editor .welcome")[0].style.display = "none";
+                    document.querySelectorAll(".editor .main")[0].style.display = "block";
+                }, 1000);
+                fnBrowserDetect();
+            }
+
+            function show_err0x1(browser, show) {
+                document.querySelectorAll(".err0x1 mark")[0].innerHTML = browser;
+                if (show == true) {
+                    document.querySelectorAll(".err0x1")[0].style.display = "block";
+                    document.querySelectorAll(".editor")[0].style.display = "none";
+                } else {
+                    document.querySelectorAll(".err0x1")[0].style.display = "none";
+                    document.querySelectorAll(".editor")[0].style.display = "block";
+                }
+
+            }
+
+            function fnBrowserDetect() {
+
+                let userAgent = navigator.userAgent;
+
+                if (userAgent.match(/chrome|chromium|crios/i)) {
+                    show_err0x1("Chrome", false);
+                }
+                if (userAgent.match(/firefox|fxios/i)) {
+                    show_err0x1("Firefox", false);
+                }
+                if (userAgent.match(/safari/i)) {
+                    show_err0x1("Safari", true);
+                }
+                if (userAgent.match(/opr\//i)) {
+                    show_err0x1("Opera", false);
+                }
+                if (userAgent.match(/edg/i)) {
+                    show_err0x1("Edge", true);
+                }
+                if (userAgent.match(/chrome|chromium|crios/i) || userAgent.match(/firefox|fxios/i) || userAgent
+                    .match(/safari/i) || userAgent.match(/opr\//i) || userAgent.match(/edg/i)) {} else {
+                    show_err0x1("Unknown", true);
+                }
+            }
+
+        }, 10);
+
+        function bottomBarAction() {
+            const i = document.querySelectorAll(".editbox .grid button");
+
+            i[0].onclick = function () {
+                //
+            };
+
+            for (let l = 0; l < i.length; l++) {
+                i[l].onclick = function () {
+                    activeSwitch(l);
+                };
+            }
+
+            function activeSwitch(index) {
+                i[index].classList.add("active");
+                for (let k = 0; k < i.length; k++) {
+                    if (k != index) {
+                        i[k].classList.remove("active");
+                    }
+                }
+            }
+        }
+
+        bottomBarAction();
+
+        function addNewAction() {
+            let id = "";
+            const pde = {
+                "Header": "<h1 id='" + id + "'>This is header 1</h1>",
+                "Paragraph": "<p>This is a paragraph</p>",
+                "Image": "<img id='" + id + "' src='img1x1.jpg' width='100' height='100' alt='Image title' />",
+                "Canvas": "<canvas id='" + id + "' width='300' height='300'></canvas>",
+                "SVG": "<svg id='" + id +
+                    "' xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#333' viewBox='0 0 16 16'></svg>"
+            };
+            const asd = document.querySelectorAll(".addnewbox .item div");
+
+            for (let p = 0; p < asd.length; p++) {
+                asd[p].onclick = function () {
+                    asd[p].classList.add("select");
+                    for (let d = 0; d < asd.length; d++) {
+                        if (d != p) {
+                            asd[d].classList.remove("select");
+                        }
+                    }
+                }
+
+            }
+
+            document.querySelectorAll(".addnewbox button")[0].onclick = function () {
+                let fi = document.querySelectorAll(".addnewbox .item .select p")[0];
+                const fit = document.querySelectorAll(".addnewbox .item .select")[0];
+                if (fi) {
+                    for (const u in pde) {
+                        if (u == fi.innerHTML) {
+                            document.querySelectorAll(".idset")[0].style.display = "";
+                            document.querySelectorAll(".addnewbox")[0].style.display = "none";
+                            document.querySelectorAll("#idset")[0].value = u.toLowerCase();
+                            checkID(u.toLowerCase(), function (a) {
+                                id = a;
+                                document.querySelectorAll(".body")[0].innerHTML += (pde[u]);
+                                selectLayerAdd(id);
+                                if (fit) {
+                                    fit.classList.remove("select");
+                                }
+                            });
+
+                        }
+                    }
+                }
+            }
+
+            document.querySelectorAll(".addnew")[0].onclick = function () {
+                document.querySelectorAll(".addnewbox")[0].style.display = "";
+            }
+
+            document.querySelectorAll(".addnewbox button")[1].onclick = function () {
+                document.querySelectorAll(".addnewbox")[0].style.display = "none";
+                let fi = document.querySelectorAll(".addnewbox .item .select")[0];
+                if (fi) {
+                    fi.classList.remove("select");
+                }
+            }
+        }
+
+        addNewAction();
+
+        function selectLayerView() {
+            const fg = document.querySelectorAll("#ctrl-s")[0];
+            fg.onchange = function () {
+                  alert("")
+            };
+        }
+
+        selectLayerView();
+
+        function selectLayerAdd(x) {
+            const ly = document.querySelectorAll("#ctrl-s")[0];
+            ly.innerHTML += '<option value="' + x.toLowerCase() + '">' + x + '</option>';
+        }
+
+        function checkID(x, y) {
+            document.querySelectorAll(".idset button")[0].onclick = function () {
+                let flag = false;
+                let oi = document.querySelectorAll("#ctrl-s option");
+                for (let m = 0; m < oi.length; m++) {
+                    if (oi[m].innerHTML == document.querySelectorAll("#idset")[0].value) {
+                        flag = true;
+                    }
+                }
+                if (flag == false) {
+                    document.querySelectorAll(".idset")[0].style.display = "none";
+                    return y(document.querySelectorAll("#idset")[0].value);
+                } else alert("err0x45");
+            }
+        }
+    </script>
+</body>
+
+</html>
