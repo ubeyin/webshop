@@ -188,8 +188,7 @@
         }
 
 
-        .err0x0,
-        .err0x1 {
+        .err0x0 {
             width: 80%;
             max-width: 400px;
             min-width: 100px;
@@ -199,8 +198,7 @@
             margin: 20px auto;
         }
 
-        .err0x0 h2,
-        .err0x1 h2 {
+        .err0x0 h2 {
             margin: 0px;
             font-size: 20px;
             padding: 25px;
@@ -209,8 +207,7 @@
             color: #121213;
         }
 
-        .err0x0 button,
-        .err0x1 button {
+        .err0x0 button {
             padding: 9px 18px;
             border: 0;
             outline: 0;
@@ -222,7 +219,7 @@
             color: rgba(19, 19, 19, 0.774);
         }
 
-        .err0x1 mark {
+        .err0x0 mark {
             padding: 2px;
             border-radius: .3rem;
             background-color: rgba(0, 0, 0, .12);
@@ -641,11 +638,7 @@
     </style>
 
     <div class="err0x0" style="display: none;">
-        <h2>Please use your device that's size is greater than 300x500 pixel for better performace.</h2>
-    </div>
-    <div class="err0x1" style="display: none;">
-        <h2>You are using <mark>Unsupported</mark> Browser. Use supported browser for better performace.
-        </h2>
+        <h2>Please use your device that's size is greater than <mark>300x500</mark> pixel for better performace.</h2>
     </div>
 
     <div class="editor" style="display: none;">
@@ -680,7 +673,7 @@
 
             <div class="canvasbody">
                 <div class="body">
-                    <button>click on me</button>
+                    
                 </div>
             </div>
 
@@ -840,7 +833,6 @@
                     document.querySelectorAll(".editor .welcome")[0].style.display = "none";
                     document.querySelectorAll(".editor .main")[0].style.display = "block";
                 }, 1000);
-                fnBrowserDetect();
             }
 
             function show_err0x1(browser, show) {
@@ -853,31 +845,6 @@
                     document.querySelectorAll(".editor")[0].style.display = "block";
                 }
 
-            }
-
-            function fnBrowserDetect() {
-
-                let userAgent = navigator.userAgent;
-
-                if (userAgent.match(/chrome|chromium|crios/i)) {
-                    show_err0x1("Chrome", false);
-                }
-                if (userAgent.match(/firefox|fxios/i)) {
-                    show_err0x1("Firefox", false);
-                }
-                if (userAgent.match(/safari/i)) {
-                    show_err0x1("Safari", true);
-                }
-                if (userAgent.match(/opr\//i)) {
-                    show_err0x1("Opera", false);
-                }
-                if (userAgent.match(/edg/i)) {
-                    show_err0x1("Edge", true);
-                }
-                if (userAgent.match(/chrome|chromium|crios/i) || userAgent.match(/firefox|fxios/i) || userAgent
-                    .match(/safari/i) || userAgent.match(/opr\//i) || userAgent.match(/edg/i)) {} else {
-                    show_err0x1("Unknown", true);
-                }
             }
 
         }, 10);
@@ -909,11 +876,13 @@
 
         function addNewAction() {
             let id = "";
-            const pde = {
+            let pde = {
                 "Header": "<h1 id='" + id + "'>This is header 1</h1>",
-                "Paragraph": "<p>This is a paragraph</p>",
-                "Image": "<img id='" + id + "' src='img1x1.jpg' width='100' height='100' alt='Image title' />",
-                "Canvas": "<canvas id='" + id + "' width='300' height='300'></canvas>",
+                "Paragraph": "<p id='" + id + "'>This is a paragraph</p>",
+                "Image": "<img id='" + id +
+                    "' src='img1x1.jpg' width='100' height='100' alt='Image title' />",
+                "Canvas": "<canvas id='" + id +
+                    "' width='300' height='300'></canvas>",
                 "SVG": "<svg id='" + id +
                     "' xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#333' viewBox='0 0 16 16'></svg>"
             };
@@ -939,9 +908,19 @@
                         if (u == fi.innerHTML) {
                             document.querySelectorAll(".idset")[0].style.display = "";
                             document.querySelectorAll(".addnewbox")[0].style.display = "none";
-                            document.querySelectorAll("#idset")[0].value = u.toLowerCase();
+                            document.querySelectorAll("#idset")[0].value = u.toLowerCase() + "_";
                             checkID(u.toLowerCase(), function (a) {
                                 id = a;
+                                pde = {
+                                    "Header": "<h1 id='" + id + "'>This is header 1</h1>",
+                                    "Paragraph": "<p id='" + id + "'>This is a paragraph</p>",
+                                    "Image": "<img id='" + id +
+                                        "' src='img1x1.jpg' width='100' height='100' alt='Image title' />",
+                                    "Canvas": "<canvas id='" + id +
+                                        "' width='300' height='300'></canvas>",
+                                    "SVG": "<svg id='" + id +
+                                        "' xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#333' viewBox='0 0 16 16'></svg>"
+                                };
                                 document.querySelectorAll(".body")[0].innerHTML += (pde[u]);
                                 selectLayerAdd(id);
                                 if (fit) {
@@ -969,10 +948,35 @@
 
         addNewAction();
 
+        function highlight(element) {
+            let defaultBG = element.style.backgroundColor;
+            let defaultBorder = element.style.border;
+            let defaultTransition = element.style.transition;
+            let defaultScale = element.style.transform;
+
+            element.style.transition = "background 1s";
+            element.style.backgroundColor = "#FDFF47";
+            element.style.border = "2px dotted #FDFF47";
+            element.style.transform = "scale(.8)";
+
+            setTimeout(function () {
+                element.style.transform = defaultScale;
+                setTimeout(function () {
+                    element.style.transition = defaultTransition;
+                    element.style.backgroundColor = defaultBG;
+                    element.style.border = defaultBorder;
+                }, 1000);
+            }, 100);
+        }
+
         function selectLayerView() {
             const fg = document.querySelectorAll("#ctrl-s")[0];
             fg.onchange = function () {
-                  alert("")
+                if (document.querySelectorAll(".body #" + document.querySelector("#ctrl-s option:checked")
+                        .innerHTML)[0]) {
+                    highlight(document.querySelectorAll(".body #" + document.querySelector("#ctrl-s option:checked")
+                        .innerHTML)[0]);
+                }
             };
         }
 
