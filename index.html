@@ -5,640 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Webshop: ubeyin</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <!--<style>
-        body {
-            margin: 0;
-            box-sizing: border-box;
-            background-color: #eee;
-        }
-
-        main {
-            width: 100%;
-            height: 100%;
-            background-color: transparent;
-        }
-
-        main .head-page {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 150px;
-            background-color: white;
-            box-shadow: 0 0 11px rgba(0, 0, 0, .2);
-        }
-
-        main .body-page {
-            width: 100%;
-            margin-top: calc(180px + 3vh);
-            margin-bottom: 170px;
-        }
-
-        main .edit-page {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 150px;
-            background-color: white;
-            box-shadow: 0 0 11px rgba(0, 0, 0, .2);
-        }
-
-        main .body-main {
-            min-width: 390px;
-            max-width: 500px;
-            width: 85%;
-            height: 500px;
-            margin: 20px auto;
-            background-color: white;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-            border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
-        }
-
-        @media screen and (min-width: 1200px) {
-            main {
-                display: flex;
-                flex: auto;
-            }
-
-            main .head-page {
-                position: none;
-                width: 290px;
-                height: 100%;
-            }
-
-            main .body-page {
-                margin-top: 100px;
-                margin-bottom: 0;
-            }
-
-            main .body-main {
-                min-width: 490px;
-                max-width: 600px;
-                width: 85%;
-                height: 600px;
-            }
-
-            main .edit-page {
-                position: fixed;
-                right: 0;
-                bottom: auto;
-                left: auto;
-                width: calc(300px + 5vw);
-                height: 100%;
-            }
-        }
-    </style>
-
-    <main>
-        <div class="head-page">
-            Head
-        </div>
-        <div class="body-page">
-            <div class="body-main">
-                Body
-            </div>
-        </div>
-        <div class="edit-page">
-            Edit
-        </div>
-    </main>-->
-
     <style>
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
 
-        * {
-            box-sizing: border-box;
-            transition-property: opacity;
-            transition-duration: 2s;
-            transition-timing-function: cubic-bezier(0.5, 0.2, 0.9, 0.4);
-        }
-
-        .fade-in {
-            -webkit-animation: fadein .2s;
-            /* Safari, Chrome and Opera > 12.1 */
-            -moz-animation: fadein .2s;
-            /* Firefox < 16 */
-            -ms-animation: fadein .2s;
-            /* Internet Explorer */
-            -o-animation: fadein .2s;
-            /* Opera < 12.1 */
-            animation: fadein .2s;
-        }
-
-        @keyframes fadein {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Firefox < 16 */
-        @-moz-keyframes fadein {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Safari, Chrome and Opera > 12.1 */
-        @-webkit-keyframes fadein {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Internet Explorer */
-        @-ms-keyframes fadein {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Opera < 12.1 */
-        @-o-keyframes fadein {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-
-        .err0x0 {
-            width: 80%;
-            max-width: 400px;
-            min-width: 100px;
-            background-color: paleturquoise;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-            border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
-            margin: 20px auto;
-        }
-
-        .err0x0 h2 {
-            margin: 0px;
-            font-size: 20px;
-            padding: 25px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-weight: 100;
-            color: #121213;
-        }
-
-        .err0x0 button {
-            padding: 9px 18px;
-            border: 0;
-            outline: 0;
-            background-color: rgba(0, 0, 0, .2);
-            border-radius: .21rem;
-            margin: 30px 20px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-size: 14px;
-            color: rgba(19, 19, 19, 0.774);
-        }
-
-        .err0x0 mark {
-            padding: 2px;
-            border-radius: .3rem;
-            background-color: rgba(0, 0, 0, .12);
-        }
-
-        .err0x0 button:hover {
-            background-color: rgba(0, 0, 0, .12);
-        }
-
-        .editor {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 100;
-            width: 100%;
-            height: 100%;
-            overflow-y: scroll;
-            background-image: url(img1x2.jpg);
-            background-color: rgba(0, 0, 0, .2);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        .editor .welcome {
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, .42);
-        }
-
-        .editor .welcome-box {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            display: flex;
-            min-width: 300px;
-            max-width: 600px;
-            height: 400px;
-            background-color: white;
-            color: #333;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-        }
-
-        .editor .welcome .left {
-            float: left;
-            padding: 22px;
-        }
-
-        .editor .welcome .left .logo {
-            width: 70px;
-            height: 70px;
-            background-color: wheat;
-            background-image: url(img1x3.jpg);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
-        }
-
-        .editor .welcome .left h3 {
-            font-weight: 500;
-            font-size: 23px;
-            margin: 20px 0;
-        }
-
-        .editor .welcome .left p {
-            font-size: 13px;
-            margin-bottom: 29px;
-        }
-
-        .editor .welcome .left span {
-            position: absolute;
-            bottom: 0;
-            padding: 20px 4px;
-            animation: 2s welcome-loadbar infinite linear;
-            transition: all 1s ease-in-out;
-        }
-
-        @keyframes welcome-loadbar {
-            from {
-                opacity: .2;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        .editor .welcome .right {
-            float: right;
-            width: 40%;
-            height: 100%;
-            background-color: wheat;
-            background-image: url(img1x1.jpg);
-            background-size: cover;
-        }
-
-        .editor .main {
-            position: fixed;
-            top: 0;
-            left: 0;
-            overflow: scroll;
-            width: 100%;
-            height: 100%;
-            animation: open-page 1s;
-            background-color: #eee;
-        }
-
-        .main .headbar {
-            position: sticky;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, .9);
-            box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-            z-index: 100;
-        }
-
-        .main .headbar .left {
-            width: 100%;
-        }
-
-        .main .headbar .left h2 {
-            margin: 0;
-            padding: 12px 16px;
-            font-weight: 500;
-            user-select: none;
-        }
-
-        .main .headbar .right {
-            width: 100%;
-            background-color: #6c757d;
-            margin: auto;
-        }
-
-        .main .headbar .right button {
-            background-color: transparent;
-            color: white;
-            margin: 9px 16px;
-            border: 0;
-            outline: 0;
-            font-weight: 500;
-            font-size: 15px;
-        }
-
-        .main .headbar .right button:hover {
-            background-color: rgba(0, 0, 0, .092);
-        }
-
-        .main .canvasbody {
-            width: 90%;
-            max-width: 400px;
-            min-width: 300px;
-            height: 400px;
-            background-color: white;
-            margin: 50px auto;
-            border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-            margin-bottom: 260px;
-            overflow-y: scroll;
-        }
-
-        .main .editbox {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 250px;
-            background-color: white;
-            border-top-left-radius: 2rem;
-            border-top-right-radius: 2rem;
-            box-shadow: 0 0 2px rgba(0, 0, 0, .2);
-            z-index: 100;
-        }
-
-        .main .editbox .grid {
-            display: flex;
-            position: absolute;
-            width: 100%;
-            bottom: 0;
-            left: 0;
-            overflow-x: scroll;
-            background-color: #6c757d;
-        }
-
-        .main .editbox .grid button {
-            padding: 10px 25px;
-            margin: 12px;
-            max-width: 100px;
-            color: #fff;
-            outline: 0;
-            border: 0;
-            text-align: center;
-            border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
-            background: transparent;
-        }
-
-        .main .editbox .grid button:hover {
-            background-color: rgba(0, 0, 0, .082);
-        }
-
-        .main .editbox .grid button:active,
-        .main .editbox .grid button.active {
-            background-color: rgba(0, 0, 0, .12);
-        }
-
-        .main .editbox .grid button sup {
-            display: block;
-        }
-
-        .main .editbox .grid button:first-child {
-            margin-left: 23px;
-        }
-
-        .main .editbox .grid button:last-child {
-            margin-right: 23px;
-        }
-
-        .main .editbox .grid button sup {
-            font-style: none;
-        }
-
-        .main .editbox .ctrl {
-            width: 100%;
-            padding: 15px 22px;
-        }
-
-        .main .editbox .ctrl-s {
-            border: 1px dotted;
-            padding: 4px;
-            width: 50%;
-        }
-
-        .main .editbox #ctrl-s {
-            appearance: none;
-            -moz-appearance: none;
-            background-color: transparent;
-            border: none;
-            padding: 0 1em 0 0;
-            margin: 0;
-            width: 100%;
-            font-family: inherit;
-            font-size: inherit;
-            cursor: inherit;
-            line-height: inherit;
-        }
-
-        select::-ms-expand {
-            display: none;
-        }
-
-        .main .addnew {
-            position: fixed;
-            right: 40px;
-            bottom: 230px;
-            z-index: 111;
-            width: 55px;
-            height: 55px;
-            background-color: #6c757d;
-            border-radius: 10rem;
-            color: #ffffff;
-        }
-
-        .main .addnew svg {
-            transform: scale(2.1) translate(-90%, -90%);
-            margin-left: 90%;
-            margin-top: 90%;
-        }
-
-        .main .addnewbox,
-        .main .idset {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, .2);
-            z-index: 120;
-        }
-
-        .main .addnewbox>div {
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) scale(.8);
-            width: 90%;
-            max-width: 500px;
-            height: 480px;
-            background-color: #fff;
-            border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
-            box-shadow: 0 0 2px rgba(0, 0, 0, .2);
-        }
-
-        .main .idset>div {
-            position: fixed;
-            left: 50%;
-            bottom: 40px;
-            transform: translate(-50%) scale(.8);
-            width: 90%;
-            max-width: 500px;
-            padding-bottom: 10px;
-            background-color: #fff;
-            border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
-            box-shadow: 0 0 2px rgba(0, 0, 0, .2);
-        }
-
-        .main .addnewbox h2,
-        .main .idset h2 {
-            margin: 0;
-            padding: 16px 20px;
-            padding-bottom: 5px;
-            font-weight: 500;
-        }
-
-        .main .idset input {
-            outline: none;
-            margin: 10px 20px;
-            background-color: #ffffff;
-            background-repeat: no-repeat;
-            background-position: right 8px center;
-            border: 1px solid #e1e4e8;
-            border-radius: 6px;
-            box-shadow: rgba(225, 228, 232, 0.2) 0px 1px 0px 0px inset;
-            font-size: 14px;
-            line-height: 20px;
-            color: #24292e;
-            vertical-align: middle;
-            padding: 5px 12px;
-        }
-
-        .main .addnewbox p {
-            margin: 17px 0px;
-            margin-top: 4px;
-            padding-left: 19px;
-            font-size: 14px;
-            color: grey;
-        }
-
-        .main .addnewbox .item {
-            padding: 3px 19px;
-            width: 90%;
-            margin: auto;
-            height: 300px;
-            overflow-y: scroll;
-            user-select: none;
-        }
-
-        .main .addnewbox .item div {
-            display: flex;
-            min-height: 52px;
-            background-color: rgba(0, 0, 0, 0.015);
-            margin-bottom: 10px;
-        }
-
-        .main .addnewbox .item div.select {
-            background-color: rgba(108, 117, 125, 0.239);
-        }
-
-        .main .addnewbox .item div p {
-            padding: 0 20px;
-            margin-top: 10px;
-            font-size: 17px;
-            color: #333;
-            min-width: 100px;
-        }
-
-        .main .addnewbox .item div img {
-            min-width: 60px;
-            max-width: 60px;
-            min-height: 40px;
-            object-fit: scale-down;
-            border-right: 1px dotted rgba(3, 107, 3, 0.322);
-        }
-
-        .main .addnewbox .item div span {
-            margin: 10px;
-            color: grey;
-            font-size: 11px;
-        }
-
-        .main .addnewbox .btngroup {
-            display: flex;
-            padding: 20px;
-        }
-
-        .main .addnewbox .btngroup button,
-        .main .idset button {
-            flex-grow: 1;
-            margin-right: 10px;
-            cursor: pointer;
-            outline: none;
-            min-width: 64px;
-            color: #fff;
-            background: #6c757d;
-            border-radius: 4px;
-            box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
-            border: none;
-            font-weight: 500;
-            line-height: 1.15;
-            font-size: 14px;
-            height: 36px;
-            word-spacing: 0px;
-            letter-spacing: .0892857143em;
-            text-decoration: none;
-            text-transform: uppercase;
-            text-align: center;
-            padding: 0 16px;
-            transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .main .addnewbox .btngroup button:active {
-            box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
-        }
     </style>
 
     <div class="err0x0" style="display: none;">
-        <h2>Please use your device that's size is greater than <mark>300x500</mark> pixel for better performace.</h2>
+        <h2>Please use your device that's width is greater than <mark>300</mark> pixel for better performace.</h2>
     </div>
 
     <div class="editor" style="display: none;">
@@ -673,10 +50,10 @@
 
             <div class="canvasbody">
                 <div class="body">
-                    
+
                 </div>
             </div>
-
+            <!-- start: Prompt -->
             <div class="addnew"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-plus-lg" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
@@ -690,46 +67,46 @@
                     <div class="item">
                         <h3>Texting</h3>
                         <div>
-                            <img src="img_texting.png" alt="">
+                            <img src="assets/img/img_texting.png" alt="">
                             <p>Header</p>
-                            <span>A group of heading tags used to create heading in a webpage</span>
+                            <span>Create a heading text</span>
                         </div>
                         <div>
-                            <img src="img_texting.png" alt="">
+                            <img src="assets/img/img_texting.png" alt="">
                             <p>Paragraph</p>
-                            <span>The paragraph in a webpage</span>
+                            <span>Create a paragraph text</span>
                         </div>
                         <h3>Imaging</h3>
                         <div>
-                            <img src="img_imaging.png" alt="">
+                            <img src="assets/img/img_imaging.png" alt="">
                             <p>Image</p>
-                            <span>Image on webpages</span>
+                            <span>Create an Image show</span>
                         </div>
                         <div>
-                            <img src="img_imaging.png" alt="">
+                            <img src="assets/img/img_imaging.png" alt="">
                             <p>Canvas</p>
-                            <span>An area to draw something on the webpage using javascript</span>
+                            <span>Create an area to draw using script</span>
                         </div>
                         <div>
-                            <img src="img_imaging.png" alt="">
+                            <img src="assets/img/img_imaging.png" alt="">
                             <p>SVG</p>
-                            <span>A container for SVG image</span>
+                            <span>Create a container for SVG image</span>
                         </div>
                         <h3>Printing</h3>
                         <div>
-                            <img src="img_basic.png" alt="">
+                            <img src="assets/img/img_basic.png" alt="">
                             <p>Comment</p>
-                            <span>Write comments in HTML documents</span>
+                            <span>Comments in HTML documents</span>
                         </div>
                         <div>
-                            <img src="img_basic.png" alt="">
+                            <img src="assets/img/img_basic.png" alt="">
                             <p>Bracket</p>
-                            <span>A hidden line break</span>
+                            <span>Hidden line break</span>
                         </div>
                         <div>
-                            <img src="img_basic.png" alt="">
+                            <img src="assets/img/img_basic.png" alt="">
                             <p>Margin</p>
-                            <span>A horizontal line in a webpage</span>
+                            <span>Horizontal line bracket</span>
                         </div>
 
 
@@ -745,8 +122,29 @@
             <div class="idset fade-in" style="display: none;">
                 <div>
                     <h2>ID Name</h2>
+                    <span onclick="this.parentNode.parentNode.style.display = 'none'">Cancel</span>
                     <input type="text" id="idset" placeholder="id">
                     <button>Create</button>
+                </div>
+            </div>
+
+            <div id="snackbar">Waiting...</div>
+            <!-- End: prompt -->
+
+            <div class="edit_property bx" style="display: none;">
+                <span onclick="this.parentNode.style.display = 'none'">Close</span>
+                <div class="header_section">
+                    <h3>Select header:</h3>
+                    <div class="sl">
+                        <select id="header_s">
+                            <option value="0" selected>Header 1</option>
+                            <option value="1">Header 2</option>
+                            <option value="2">Header 3</option>
+                            <option value="3">Header 4</option>
+                            <option value="4">Header 5</option>
+                            <option value="5">Header 6</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
@@ -755,7 +153,7 @@
                     <h3>Select layer:</h3>
                     <div class="ctrl-s">
                         <select id="ctrl-s">
-                            <option value="0">None</option>
+
                         </select>
                     </div>
 
@@ -813,196 +211,7 @@
 
     </div>
 
-    <script>
-        setInterval(() => {
-
-            var win = window,
-                doc = document,
-                docElem = doc.documentElement,
-                body = doc.getElementsByTagName('body')[0],
-                x = win.innerWidth || docElem.clientWidth || body.clientWidth,
-                y = win.innerHeight || docElem.clientHeight || body.clientHeight;
-
-            if (x <= 300 || y <= 500) {
-                document.querySelectorAll(".err0x0")[0].style.display = "block";
-                document.querySelectorAll(".editor")[0].style.display = "none";
-            } else {
-                document.querySelectorAll(".err0x0")[0].style.display = "none";
-                document.querySelectorAll(".editor")[0].style.display = "block";
-                setTimeout(() => {
-                    document.querySelectorAll(".editor .welcome")[0].style.display = "none";
-                    document.querySelectorAll(".editor .main")[0].style.display = "block";
-                }, 1000);
-            }
-
-            function show_err0x1(browser, show) {
-                document.querySelectorAll(".err0x1 mark")[0].innerHTML = browser;
-                if (show == true) {
-                    document.querySelectorAll(".err0x1")[0].style.display = "block";
-                    document.querySelectorAll(".editor")[0].style.display = "none";
-                } else {
-                    document.querySelectorAll(".err0x1")[0].style.display = "none";
-                    document.querySelectorAll(".editor")[0].style.display = "block";
-                }
-
-            }
-
-        }, 10);
-
-        function bottomBarAction() {
-            const i = document.querySelectorAll(".editbox .grid button");
-
-            i[0].onclick = function () {
-                //
-            };
-
-            for (let l = 0; l < i.length; l++) {
-                i[l].onclick = function () {
-                    activeSwitch(l);
-                };
-            }
-
-            function activeSwitch(index) {
-                i[index].classList.add("active");
-                for (let k = 0; k < i.length; k++) {
-                    if (k != index) {
-                        i[k].classList.remove("active");
-                    }
-                }
-            }
-        }
-
-        bottomBarAction();
-
-        function addNewAction() {
-            let id = "";
-            let pde = {
-                "Header": "<h1 id='" + id + "'>This is header 1</h1>",
-                "Paragraph": "<p id='" + id + "'>This is a paragraph</p>",
-                "Image": "<img id='" + id +
-                    "' src='img1x1.jpg' width='100' height='100' alt='Image title' />",
-                "Canvas": "<canvas id='" + id +
-                    "' width='300' height='300'></canvas>",
-                "SVG": "<svg id='" + id +
-                    "' xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#333' viewBox='0 0 16 16'></svg>"
-            };
-            const asd = document.querySelectorAll(".addnewbox .item div");
-
-            for (let p = 0; p < asd.length; p++) {
-                asd[p].onclick = function () {
-                    asd[p].classList.add("select");
-                    for (let d = 0; d < asd.length; d++) {
-                        if (d != p) {
-                            asd[d].classList.remove("select");
-                        }
-                    }
-                }
-
-            }
-
-            document.querySelectorAll(".addnewbox button")[0].onclick = function () {
-                let fi = document.querySelectorAll(".addnewbox .item .select p")[0];
-                const fit = document.querySelectorAll(".addnewbox .item .select")[0];
-                if (fi) {
-                    for (const u in pde) {
-                        if (u == fi.innerHTML) {
-                            document.querySelectorAll(".idset")[0].style.display = "";
-                            document.querySelectorAll(".addnewbox")[0].style.display = "none";
-                            document.querySelectorAll("#idset")[0].value = u.toLowerCase() + "_";
-                            checkID(u.toLowerCase(), function (a) {
-                                id = a;
-                                pde = {
-                                    "Header": "<h1 id='" + id + "'>This is header 1</h1>",
-                                    "Paragraph": "<p id='" + id + "'>This is a paragraph</p>",
-                                    "Image": "<img id='" + id +
-                                        "' src='img1x1.jpg' width='100' height='100' alt='Image title' />",
-                                    "Canvas": "<canvas id='" + id +
-                                        "' width='300' height='300'></canvas>",
-                                    "SVG": "<svg id='" + id +
-                                        "' xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#333' viewBox='0 0 16 16'></svg>"
-                                };
-                                document.querySelectorAll(".body")[0].innerHTML += (pde[u]);
-                                selectLayerAdd(id);
-                                if (fit) {
-                                    fit.classList.remove("select");
-                                }
-                            });
-
-                        }
-                    }
-                }
-            }
-
-            document.querySelectorAll(".addnew")[0].onclick = function () {
-                document.querySelectorAll(".addnewbox")[0].style.display = "";
-            }
-
-            document.querySelectorAll(".addnewbox button")[1].onclick = function () {
-                document.querySelectorAll(".addnewbox")[0].style.display = "none";
-                let fi = document.querySelectorAll(".addnewbox .item .select")[0];
-                if (fi) {
-                    fi.classList.remove("select");
-                }
-            }
-        }
-
-        addNewAction();
-
-        function highlight(element) {
-            let defaultBG = element.style.backgroundColor;
-            let defaultBorder = element.style.border;
-            let defaultTransition = element.style.transition;
-            let defaultScale = element.style.transform;
-
-            element.style.transition = "background 1s";
-            element.style.backgroundColor = "#FDFF47";
-            element.style.border = "2px dotted #FDFF47";
-            element.style.transform = "scale(.8)";
-
-            setTimeout(function () {
-                element.style.transform = defaultScale;
-                setTimeout(function () {
-                    element.style.transition = defaultTransition;
-                    element.style.backgroundColor = defaultBG;
-                    element.style.border = defaultBorder;
-                }, 1000);
-            }, 100);
-        }
-
-        function selectLayerView() {
-            const fg = document.querySelectorAll("#ctrl-s")[0];
-            fg.onchange = function () {
-                if (document.querySelectorAll(".body #" + document.querySelector("#ctrl-s option:checked")
-                        .innerHTML)[0]) {
-                    highlight(document.querySelectorAll(".body #" + document.querySelector("#ctrl-s option:checked")
-                        .innerHTML)[0]);
-                }
-            };
-        }
-
-        selectLayerView();
-
-        function selectLayerAdd(x) {
-            const ly = document.querySelectorAll("#ctrl-s")[0];
-            ly.innerHTML += '<option value="' + x.toLowerCase() + '">' + x + '</option>';
-        }
-
-        function checkID(x, y) {
-            document.querySelectorAll(".idset button")[0].onclick = function () {
-                let flag = false;
-                let oi = document.querySelectorAll("#ctrl-s option");
-                for (let m = 0; m < oi.length; m++) {
-                    if (oi[m].innerHTML == document.querySelectorAll("#idset")[0].value) {
-                        flag = true;
-                    }
-                }
-                if (flag == false) {
-                    document.querySelectorAll(".idset")[0].style.display = "none";
-                    return y(document.querySelectorAll("#idset")[0].value);
-                } else alert("err0x45");
-            }
-        }
-    </script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
