@@ -92,23 +92,18 @@
                             <p>SVG</p>
                             <span>Create a container for SVG image</span>
                         </div>
-                        <h3>Printing</h3>
+                        <h3>Linking</h3>
                         <div>
-                            <img src="assets/img/img_basic.png" alt="">
-                            <p>Comment</p>
-                            <span>Comments in HTML documents</span>
+                            <img src="assets/img/img_linking.png" alt="">
+                            <p>Link</p>
+                            <span>A hyperlink text</span>
                         </div>
+                        <h3>Listing</h3>
                         <div>
-                            <img src="assets/img/img_basic.png" alt="">
-                            <p>Bracket</p>
-                            <span>Hidden line break</span>
+                            <img src="assets/img/img_listing.png" alt="">
+                            <p>List</p>
+                            <span>An ordered/unordered list</span>
                         </div>
-                        <div>
-                            <img src="assets/img/img_basic.png" alt="">
-                            <p>Margin</p>
-                            <span>Horizontal line bracket</span>
-                        </div>
-
 
                     </div>
                     <div class="btngroup">
@@ -133,7 +128,9 @@
 
             <div class="edit_property bx" style="display: none;">
                 <span onclick="this.parentNode.style.display = 'none'">Close</span>
-                <div class="header_section">
+                <mark>Layer: </mark>
+                <!-- header -->
+                <div class="abc">
                     <h3>Select header:</h3>
                     <div class="sl">
                         <select id="header_s">
@@ -146,6 +143,82 @@
                         </select>
                     </div>
                 </div>
+                <!-- image -->
+                <div class="abc">
+                    <h3>Image links</h3>
+                    <div class="sl">
+                        <input type="url" placeholder="https://" disabled="true">
+                        <button>change</button>
+                        <button style="display: none;">okay</button>
+                    </div>
+                    <h3>Image text</h3>
+                    <div class="sl">
+                        <input type="text" placeholder="offline text of the image" disabled="true">
+                        <button>change</button>
+                        <button style="display: none;">okay</button>
+                    </div>
+                </div>
+                <!-- svg -->
+                <div class="abc">
+                    <h3>SVG viewbox</h3>
+                    <div class="sl">
+                        <input type="tel" placeholder="0 0 16 16" disabled="true">
+                        <button>change</button>
+                        <button style="display: none;">okay</button>
+                    </div>
+                    <h3>SVG fill</h3>
+                    <div class="sl">
+                        <input type="text" placeholder="currentColor" disabled="true">
+                        <button>change</button>
+                        <button style="display: none;">okay</button>
+                    </div>
+                    <h3>inner HTML</h3>
+                    <div class="sl">
+                        <textarea cols="30" rows="10" disabled="true">...</textarea>
+                        <button>change</button>
+                        <button style="display: none;">okay</button>
+                    </div>
+                </div>
+                <!-- link -->
+                <div class="abc">
+                    <h3>Link href</h3>
+                    <div class="sl">
+                        <input type="url" placeholder="https:// or tel:+0" disabled="true">
+                        <button>change</button>
+                        <button style="display: none;">okay</button>
+                    </div>
+                    <h3>Link target</h3>
+                    <div class="sl">
+                        <input type="text" placeholder="_blank" disabled="true">
+                        <button>change</button>
+                        <button style="display: none;">okay</button>
+                    </div>
+                </div>
+                <!-- list -->
+                <div class="abc">
+                    <h3>List type</h3>
+                    <div class="sl">
+                       <select disabled="true">
+                           <option value="0" selected>Ordered</option>
+                           <option value="circle">Unordered</option>
+                       </select>
+                        <button>change</button>
+                        <button style="display: none;">okay</button>
+                    </div>
+                    <h3>List index</h3>
+                    <div class="sl">
+                        <select disabled="true">
+                            <option value="0">1</option>
+                            <option value="1">A</option>
+                            <option value="2">a</option>
+                            <option value="3">I</option>
+                            <option value="4">i</option>
+                        </select>
+                        <button>change</button>
+                        <button style="display: none;">okay</button>
+                    </div>
+                </div>
+
             </div>
 
             <div class="editbox">
@@ -156,7 +229,17 @@
 
                         </select>
                     </div>
-
+                    <div class="btg">
+                        <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                          </svg></button>
+                        <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h13A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5v-9zM1.5 3a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"/>
+                            <path d="M8 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5v-3z"/>
+                          </svg></button>
+                    </div>
+                    
                 </div>
                 <div class="grid">
                     <button>

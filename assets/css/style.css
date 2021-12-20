@@ -1,646 +1,706 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-        body {
-            margin: 0;
-            font-family: Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-
-        * {
-            box-sizing: border-box;
-            transition-property: opacity;
-            transition-duration: 2s;
-            transition-timing-function: cubic-bezier(0.5, 0.2, 0.9, 0.4);
-        }
-
-        .fade-in {
-            -webkit-animation: fadein .2s;
-            /* Safari, Chrome and Opera > 12.1 */
-            -moz-animation: fadein .2s;
-            /* Firefox < 16 */
-            -ms-animation: fadein .2s;
-            /* Internet Explorer */
-            -o-animation: fadein .2s;
-            /* Opera < 12.1 */
-            animation: fadein .2s;
-        }
-
-        @keyframes fadein {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Firefox < 16 */
-        @-moz-keyframes fadein {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Safari, Chrome and Opera > 12.1 */
-        @-webkit-keyframes fadein {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Internet Explorer */
-        @-ms-keyframes fadein {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Opera < 12.1 */
-        @-o-keyframes fadein {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-
-        .err0x0 {
-            width: 80%;
-            max-width: 400px;
-            min-width: 100px;
-            background-color: paleturquoise;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-            border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
-            margin: 20px auto;
-        }
-
-        .err0x0 h2 {
-            margin: 0px;
-            font-size: 20px;
-            padding: 25px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-weight: 100;
-            color: #121213;
-        }
-
-        .err0x0 button {
-            padding: 9px 18px;
-            border: 0;
-            outline: 0;
-            background-color: rgba(0, 0, 0, .2);
-            border-radius: .21rem;
-            margin: 30px 20px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-size: 14px;
-            color: rgba(19, 19, 19, 0.774);
-        }
-
-        .err0x0 mark {
-            padding: 2px;
-            border-radius: .3rem;
-            background-color: rgba(0, 0, 0, .12);
-        }
-
-        .err0x0 button:hover {
-            background-color: rgba(0, 0, 0, .12);
-        }
-
-        .editor {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 100;
-            width: 100%;
-            height: 100%;
-            overflow-y: scroll;
-            background-image: url(../img/img1x2.jpg);
-            background-color: rgba(0, 0, 0, .2);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        .editor .welcome {
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, .42);
-        }
-
-        .editor .welcome-box {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            display: flex;
-            min-width: 300px;
-            max-width: 600px;
-            height: 400px;
-            background-color: white;
-            color: #333;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-        }
-
-        .editor .welcome .left {
-            float: left;
-            padding: 22px;
-        }
-
-        .editor .welcome .left .logo {
-            width: 70px;
-            height: 70px;
-            background-color: wheat;
-            background-image: url(../img/img1x3.jpg);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
-        }
-
-        .editor .welcome .left h3 {
-            font-weight: 500;
-            font-size: 23px;
-            margin: 20px 0;
-        }
-
-        .editor .welcome .left p {
-            font-size: 13px;
-            margin-bottom: 29px;
-        }
-
-        .editor .welcome .left span {
-            position: absolute;
-            bottom: 0;
-            padding: 20px 4px;
-            animation: 2s welcome-loadbar infinite linear;
-            transition: all 1s ease-in-out;
-        }
-
-        @keyframes welcome-loadbar {
-            from {
-                opacity: .2;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        .editor .welcome .right {
-            float: right;
-            width: 40%;
-            height: 100%;
-            background-color: wheat;
-            background-image: url(../img/img1x1.jpg);
-            background-size: cover;
-        }
-
-        .editor .main {
-            position: fixed;
-            top: 0;
-            left: 0;
-            overflow: scroll;
-            width: 100%;
-            height: 100%;
-            animation: open-page 1s;
-            background-color: #eee;
-        }
-
-        .main .headbar {
-            position: sticky;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, .9);
-            box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-            z-index: 100;
-        }
-
-        .main .headbar .left {
-            width: 100%;
-        }
-
-        .main .headbar .left h2 {
-            margin: 0;
-            padding: 12px 16px;
-            font-weight: 500;
-            user-select: none;
-        }
-
-        .main .headbar .right {
-            width: 100%;
-            background-color: #6c757d;
-            margin: auto;
-        }
-
-        .main .headbar .right button {
-            background-color: transparent;
-            color: white;
-            margin: 9px 16px;
-            border: 0;
-            outline: 0;
-            font-weight: 500;
-            font-size: 15px;
-        }
-
-        .main .headbar .right button:hover {
-            background-color: rgba(0, 0, 0, .092);
-        }
-
-        .main .canvasbody {
-            width: 90%;
-            max-width: 400px;
-            min-width: 300px;
-            height: 400px;
-            background-color: white;
-            margin: 50px auto;
-            border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-            margin-bottom: 260px;
-            overflow-y: scroll;
-            font-family: serif;
-        }
-
-        .main .editbox {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 250px;
-            background-color: white;
-            border-top-left-radius: 2rem;
-            border-top-right-radius: 2rem;
-            box-shadow: 0 0 2px rgba(0, 0, 0, .2);
-            z-index: 100;
-        }
-
-        .main .editbox .grid {
-            display: flex;
-            position: absolute;
-            width: 100%;
-            bottom: 0;
-            left: 0;
-            overflow-x: scroll;
-            background-color: #6c757d;
-        }
-
-        .main .editbox .grid button {
-            padding: 10px 25px;
-            margin: 12px;
-            max-width: 100px;
-            color: #fff;
-            outline: 0;
-            border: 0;
-            text-align: center;
-            border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
-            background: transparent;
-        }
-
-        .main .editbox .grid button:hover {
-            background-color: rgba(0, 0, 0, .082);
-        }
-
-        .main .editbox .grid button:active,
-        .main .editbox .grid button.active {
-            background-color: rgba(0, 0, 0, .12);
-        }
-
-        .main .editbox .grid button sup {
-            display: block;
-        }
-
-        .main .editbox .grid button:first-child {
-            margin-left: 23px;
-        }
-
-        .main .editbox .grid button:last-child {
-            margin-right: 23px;
-        }
-
-        .main .editbox .grid button sup {
-            font-style: none;
-        }
-
-        .main .editbox .ctrl {
-            width: 100%;
-            padding: 15px 22px;
-        }
-
-        .main .editbox .ctrl-s,
-        .sl {
-            border: 1px dotted;
-            padding: 4px;
-            width: 50%;
-        }
-
-        .main .editbox #ctrl-s,
-        select {
-            appearance: none;
-            background-color: transparent;
-            border: none;
-            padding: 0 1em 0 0;
-            margin: 0;
-            width: 100%;
-            font-family: inherit;
-            font-size: inherit;
-            cursor: inherit;
-            line-height: inherit;
-            outline: none;
-        }
-
-        select::-ms-expand {
-            display: none;
-        }
-
-        .main .addnew {
-            position: fixed;
-            right: 40px;
-            bottom: 230px;
-            z-index: 111;
-            width: 55px;
-            height: 55px;
-            background-color: #6c757d;
-            border-radius: 10rem;
-            color: #ffffff;
-        }
-
-        .main .addnew svg {
-            transform: scale(2.1) translate(-90%, -90%);
-            margin-left: 90%;
-            margin-top: 90%;
-        }
-
-        .main .addnewbox,
-        .main .idset {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, .2);
-            z-index: 120;
-        }
-
-        .main .addnewbox>div {
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) scale(.95);
-            width: 90%;
-            max-width: 500px;
-            background-color: #fff;
-            border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
-            box-shadow: 0 0 2px rgba(0, 0, 0, .2);
-        }
-
-        .main .idset>div {
-            position: fixed;
-            left: 50%;
-            bottom: 100px;
-            transform: translate(-50%) scale(.8);
-            width: 90%;
-            max-width: 500px;
-            padding-bottom: 10px;
-            background-color: #fff;
-            border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
-            box-shadow: 0 0 2px rgba(0, 0, 0, .2);
-        }
-
-        .main .addnewbox h2,
-        .main .idset h2 {
-            margin: 0;
-            padding: 16px 20px;
-            padding-bottom: 5px;
-            font-weight: 500;
-            margin-left: 10px;
-            margin-top: 10px;
-        }
-
-        .main .idset input {
-            outline: none;
-            margin: 10px 20px;
-            background-color: #ffffff;
-            background-repeat: no-repeat;
-            background-position: right 8px center;
-            border: 1px solid #e1e4e8;
-            border-radius: 6px;
-            box-shadow: rgba(225, 228, 232, 0.2) 0px 1px 0px 0px inset;
-            font-size: 14px;
-            line-height: 20px;
-            color: #24292e;
-            vertical-align: middle;
-            padding: 5px 12px;
-        }
-
-        .main .addnewbox p {
-            margin: 17px 10px;
-            margin-top: 4px;
-            padding-left: 19px;
-            font-size: 14px;
-            color: grey;
-        }
-
-        .main .addnewbox .item {
-            padding: 3px 19px;
-            width: 90%;
-            margin: auto;
-            height: 300px;
-            overflow-y: scroll;
-            user-select: none;
-        }
-
-        .main .addnewbox .item div {
-            display: flex;
-            min-height: 52px;
-            background-color: rgba(0, 0, 0, 0.015);
-            margin-bottom: 10px;
-        }
-
-        .main .addnewbox .item div.select {
-            background-color: rgba(108, 117, 125, 0.239);
-        }
-
-        .main .addnewbox .item div p {
-            padding: 0 20px;
-            margin-top: 10px;
-            font-size: 16px;
-            color: #333;
-            min-width: 130px;
-            max-width: 135px;
-        }
-
-        .main .addnewbox .item div img {
-            min-width: 60px;
-            max-width: 60px;
-            min-height: 40px;
-            object-fit: scale-down;
-            border-right: 1px dotted rgba(3, 107, 3, 0.322);
-        }
-
-        .main .addnewbox .item div span {
-            margin: 10px;
-            color: grey;
-            font-size: 11px;
-        }
-
-        .main .addnewbox .btngroup {
-            display: flex;
-            padding: 20px;
-        }
-
-        .main .addnewbox .btngroup button,
-        .main .idset button {
-            flex-grow: 1;
-            margin-right: 10px;
-            cursor: pointer;
-            outline: none;
-            min-width: 64px;
-            color: #fff;
-            background: #6c757d;
-            border-radius: 4px;
-            box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
-            border: none;
-            font-weight: 500;
-            line-height: 1.15;
-            font-size: 14px;
-            height: 36px;
-            word-spacing: 0px;
-            letter-spacing: .0892857143em;
-            text-decoration: none;
-            text-transform: uppercase;
-            text-align: center;
-            padding: 0 16px;
-            transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .main .addnewbox .btngroup button:active {
-            box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
-        }
-
-        .main .idset span {
-            position: absolute;
-            right: 17px;
-            top: 12px;
-            cursor: pointer;
-            color: #6c757d;
-            user-select: none;
-        }
-
-        /** alert **/
-        #snackbar {
-            visibility: hidden;
-            min-width: 250px;
-            margin-left: -125px;
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            border-radius: 2px;
-            padding: 11px;
-            font-size: 13px;
-            position: fixed;
-            z-index: 1000;
-            left: 50%;
-            bottom: 30px;
-        }
-
-        #snackbar.show {
-            visibility: visible;
-            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-            animation: fadein 0.5s, fadeout 0.5s 2.5s;
-        }
-
-        @-webkit-keyframes fadein {
-            from {
-                bottom: 0;
-                opacity: 0;
-            }
-
-            to {
-                bottom: 30px;
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadein {
-            from {
-                bottom: 0;
-                opacity: 0;
-            }
-
-            to {
-                bottom: 30px;
-                opacity: 1;
-            }
-        }
-
-        @-webkit-keyframes fadeout {
-            from {
-                bottom: 30px;
-                opacity: 1;
-            }
-
-            to {
-                bottom: 0;
-                opacity: 0;
-            }
-        }
-
-        @keyframes fadeout {
-            from {
-                bottom: 30px;
-                opacity: 1;
-            }
-
-            to {
-                bottom: 0;
-                opacity: 0;
-            }
-        }
-
-        /** Edit **/
-        .bx {
-            position: fixed;
-            z-index: 101;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 222px;
-            background-color: #fff;
-        }
-
-        .edit_property .header_section {
-            padding: 14px;
-        }
-
-        .edit_property span {
-            position: absolute;
-            right: 17px;
-            top: 12px;
-            cursor: pointer;
-            color: #6c757d;
-            user-select: none;
-        }
-
-        .edit_property .header_section h3 {
-            margin: 0;
-            padding: 0px 14px;
-        }
-
-        .edit_property .header_section .sl {
-            margin: 16px 14px;
-        }
+body {
+    margin: 0;
+    font-family: Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    transition-property: opacity;
+    transition-duration: 2s;
+    transition-timing-function: cubic-bezier(0.5, 0.2, 0.9, 0.4);
+}
+
+.fade-in {
+    -webkit-animation: fadein .2s;
+    /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein .2s;
+    /* Firefox < 16 */
+    -ms-animation: fadein .2s;
+    /* Internet Explorer */
+    -o-animation: fadein .2s;
+    /* Opera < 12.1 */
+    animation: fadein .2s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+.err0x0 {
+    width: 80%;
+    max-width: 400px;
+    min-width: 100px;
+    background-color: paleturquoise;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
+    margin: 20px auto;
+}
+
+.err0x0 h2 {
+    margin: 0px;
+    font-size: 20px;
+    padding: 25px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 100;
+    color: #121213;
+}
+
+.err0x0 button {
+    padding: 9px 18px;
+    border: 0;
+    outline: 0;
+    background-color: rgba(0, 0, 0, .2);
+    border-radius: .21rem;
+    margin: 30px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    color: rgba(19, 19, 19, 0.774);
+}
+
+.err0x0 mark {
+    padding: 2px;
+    border-radius: .3rem;
+    background-color: rgba(0, 0, 0, .12);
+}
+
+.err0x0 button:hover {
+    background-color: rgba(0, 0, 0, .12);
+}
+
+.editor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    background-image: url(../img/img1x2.jpg);
+    background-color: rgba(0, 0, 0, .2);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.editor .welcome {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .42);
+}
+
+.editor .welcome-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    display: flex;
+    min-width: 300px;
+    max-width: 600px;
+    height: 400px;
+    background-color: white;
+    color: #333;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+}
+
+.editor .welcome .left {
+    float: left;
+    padding: 22px;
+}
+
+.editor .welcome .left .logo {
+    width: 70px;
+    height: 70px;
+    background-color: wheat;
+    background-image: url(../img/img1x3.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
+}
+
+.editor .welcome .left h3 {
+    font-weight: 500;
+    font-size: 23px;
+    margin: 20px 0;
+}
+
+.editor .welcome .left p {
+    font-size: 13px;
+    margin-bottom: 29px;
+}
+
+.editor .welcome .left span {
+    position: absolute;
+    bottom: 0;
+    padding: 20px 4px;
+    animation: 2s welcome-loadbar infinite linear;
+    transition: all 1s ease-in-out;
+}
+
+@keyframes welcome-loadbar {
+    from {
+        opacity: .2;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.editor .welcome .right {
+    float: right;
+    width: 40%;
+    height: 100%;
+    background-color: wheat;
+    background-image: url(../img/img1x1.jpg);
+    background-size: cover;
+}
+
+.editor .main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: scroll;
+    width: 100%;
+    height: 100%;
+    animation: open-page 1s;
+    background-color: #eee;
+}
+
+.main .headbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, .9);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    z-index: 100;
+}
+
+.main .headbar .left {
+    width: 100%;
+}
+
+.main .headbar .left h2 {
+    margin: 0;
+    padding: 12px 16px;
+    font-weight: 500;
+    user-select: none;
+}
+
+.main .headbar .right {
+    width: 100%;
+    background-color: #6c757d;
+    margin: auto;
+}
+
+.main .headbar .right button {
+    background-color: transparent;
+    color: white;
+    margin: 9px 16px;
+    border: 0;
+    outline: 0;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.main .headbar .right button:hover {
+    background-color: rgba(0, 0, 0, .092);
+}
+
+.main .canvasbody {
+    width: 90%;
+    max-width: 400px;
+    min-width: 300px;
+    height: 400px;
+    background-color: white;
+    margin: 50px auto;
+    border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    margin-bottom: 260px;
+    overflow: scroll;
+    font-family: serif;
+}
+
+.main .editbox {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    background-color: white;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+    z-index: 100;
+}
+
+.main .editbox .grid {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    overflow-x: scroll;
+    background-color: #6c757d;
+}
+
+.main .editbox .grid button {
+    padding: 10px 25px;
+    margin: 12px;
+    max-width: 100px;
+    color: #fff;
+    outline: 0;
+    border: 0;
+    text-align: center;
+    border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
+    background: transparent;
+}
+
+.main .editbox .grid button:hover {
+    background-color: rgba(0, 0, 0, .082);
+}
+
+.main .editbox .grid button:active,
+.main .editbox .grid button.active {
+    background-color: rgba(0, 0, 0, .12);
+}
+
+.main .editbox .grid button sup {
+    display: block;
+}
+
+.main .editbox .grid button:first-child {
+    margin-left: 23px;
+}
+
+.main .editbox .grid button:last-child {
+    margin-right: 23px;
+}
+
+.main .editbox .grid button sup {
+    font-style: none;
+}
+
+.main .editbox .ctrl {
+    width: 100%;
+    padding: 15px 22px;
+}
+
+.main .editbox .ctrl h3 {
+    margin-bottom: 12px;
+}
+
+.main .editbox .ctrl-s,
+.sl {
+    display: inline-block;
+    border: 1px solid #6c757d;
+    padding: 2px;
+    width: 222px;
+}
+
+.main .editbox .ctrl .btg {
+    display: inline-block;
+    padding-left: 30px;
+}
+
+.main .editbox #ctrl-s,
+:not(.body) select {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    outline: none;
+    border: 1px dotted;
+    color: #535050;
+}
+
+:not(.body) select::-ms-expand {
+    display: none;
+}
+
+.main .addnew {
+    position: fixed;
+    right: 40px;
+    bottom: 230px;
+    z-index: 111;
+    width: 55px;
+    height: 55px;
+    background-color: #6c757d;
+    border-radius: 10rem;
+    color: #ffffff;
+}
+
+.main .addnew svg {
+    transform: scale(2.1) translate(-90%, -90%);
+    margin-left: 90%;
+    margin-top: 90%;
+}
+
+.main .addnewbox,
+.main .idset {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .2);
+    z-index: 120;
+}
+
+.main .addnewbox>div {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(.95);
+    width: 90%;
+    max-width: 500px;
+    background-color: #fff;
+    border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+}
+
+.main .idset>div {
+    position: fixed;
+    left: 50%;
+    bottom: 100px;
+    transform: translate(-50%) scale(.8);
+    width: 90%;
+    max-width: 500px;
+    padding-bottom: 10px;
+    background-color: #fff;
+    border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+}
+
+.main .addnewbox h2,
+.main .idset h2 {
+    margin: 0;
+    padding: 16px 20px;
+    padding-bottom: 5px;
+    font-weight: 500;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.main .idset input,
+:not(.body) input,
+:not(.body) textarea {
+    outline: none;
+    margin: 10px 20px;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    box-shadow: rgba(225, 228, 232, 0.2) 0px 1px 0px 0px inset;
+    font-size: 14px;
+    line-height: 20px;
+    color: #24292e;
+    vertical-align: middle;
+    padding: 5px 12px;
+}
+
+.main .idset input:focus,
+:not(.body) input:focus,
+:not(.body) textarea:focus {
+    border-color: #0366d6;
+    outline: none;
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+
+.main .addnewbox p {
+    margin: 17px 10px;
+    margin-top: 4px;
+    padding-left: 19px;
+    font-size: 14px;
+    color: grey;
+}
+
+.main .addnewbox .item {
+    padding: 3px 19px;
+    width: 90%;
+    margin: auto;
+    height: 300px;
+    overflow-y: scroll;
+    user-select: none;
+}
+
+.main .addnewbox .item div {
+    display: flex;
+    min-height: 52px;
+    background-color: rgba(0, 0, 0, 0.015);
+    margin-bottom: 10px;
+}
+
+.main .addnewbox .item div.select {
+    background-color: rgba(108, 117, 125, 0.239);
+}
+
+.main .addnewbox .item div p {
+    padding: 0 20px;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+    min-width: 130px;
+    max-width: 135px;
+}
+
+.main .addnewbox .item div img {
+    min-width: 60px;
+    max-width: 60px;
+    min-height: 40px;
+    object-fit: scale-down;
+    border-right: 1px dotted rgba(3, 107, 3, 0.322);
+}
+
+.main .addnewbox .item div span {
+    margin: 10px;
+    color: grey;
+    font-size: 11px;
+}
+
+.main .addnewbox .btngroup {
+    display: flex;
+    padding: 20px;
+}
+
+.main .addnewbox .btngroup button,
+.main .idset button,
+.edit_property .abc .sl button,
+.main .editbox .ctrl button {
+    flex-grow: 1;
+    margin-right: 10px;
+    cursor: pointer;
+    outline: none;
+    min-width: 64px;
+    color: #fff;
+    background: #6c757d;
+    border-radius: 4px;
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+    border: none;
+    font-weight: 500;
+    line-height: 1.15;
+    font-size: 14px;
+    height: 36px;
+    word-spacing: 0px;
+    letter-spacing: .0892857143em;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0 16px;
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.main .addnewbox .btngroup button:active,
+.main .idset button:active,
+.edit_property .abc .sl button:active,
+.main .editbox .ctrl button:active {
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+}
+
+.main .idset span {
+    position: absolute;
+    right: 17px;
+    top: 12px;
+    cursor: pointer;
+    color: #6c757d;
+    user-select: none;
+}
+
+/** alert **/
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 11px;
+    font-size: 13px;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    bottom: 30px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+/** Edit **/
+.bx {
+    position: fixed;
+    z-index: 101;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 222px;
+    background-color: #fff;
+}
+
+.edit_property .abc {
+    padding: 14px;
+    height: calc(100% - 25px);
+    overflow-y: scroll;
+}
+
+.edit_property span {
+    position: absolute;
+    right: 35px;
+    top: 0px;
+    cursor: pointer;
+    color: #6c757d;
+    user-select: none;
+}
+
+.edit_property mark {
+    margin: 0 15px;
+    padding: 2px 7px;
+}
+
+.edit_property .abc h3 {
+    margin: 0;
+    padding: 0px 14px;
+}
+
+.edit_property .abc .sl {
+    margin: 16px 14px;
+    display: flex;
+    width: 333px;
+}
+
+.edit_property .abc .sl input {
+    margin: 0;
+}
+
+.edit_property .abc .sl textarea {
+    width: 210px;
+    resize: vertical;
+    margin: 0;
+}
+
+.edit_property .abc .sl button {
+    padding: 6px 10px;
+    height: 29px;
+    margin: 1px 5px;
+}
+
+.edit_property .abc .sl select {
+    width: 220px;
+}
+
+.edit_property .abc .sl button:last-child {
+    background-color: rgba(50, 157, 167, 0.623);
+}
