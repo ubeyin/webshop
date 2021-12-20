@@ -233,6 +233,7 @@ body {
 
 .main .headbar .left {
     width: 100%;
+    display: flex;
 }
 
 .main .headbar .left h2 {
@@ -256,10 +257,39 @@ body {
     outline: 0;
     font-weight: 500;
     font-size: 15px;
+    position: relative;
+    display: inline-block;
 }
 
-.main .headbar .right button:hover {
+.main .headbar .right button div {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    color: #333333;
+    text-align: left;
+    min-width: 160px;
+    margin-top: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 0px;
+    z-index: 1;
+}
+
+.main .headbar .right button span:hover {
     background-color: rgba(0, 0, 0, .092);
+}
+
+.main .headbar .right button div p:hover {
+    background-color: rgba(0, 0, 0, .032);
+}
+
+.main .headbar .right button div p {
+    background-color: transparent;
+    margin: 0;
+    padding: 10px 14px;
+    font-size: 12.8px;
+    border-bottom-width: 1px;
+    border-bottom-color: lightgray;
+    border-bottom-style: solid;
 }
 
 .main .canvasbody {
@@ -287,6 +317,46 @@ body {
     border-top-right-radius: 2rem;
     box-shadow: 0 0 2px rgba(0, 0, 0, .2);
     z-index: 100;
+}
+
+@media screen and (min-width: 700px) {
+    .main .editbox {
+        max-width: 800px;
+        width: 90%;
+        left: 50%;
+        transform: translate(-50%);
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .main .editbox {
+        max-width: 1200px;
+        width: 60%;
+        left: auto;
+        right: 40%;
+        transform: none;
+    }
+    
+    .main .canvasbody {
+        margin-left: 10%;
+        transform: translate(-10%);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .main .editbox {
+        max-width: none;
+        width: 75%;
+        left: auto;
+        right: 25%;
+        transform: none;
+    }
+
+    .main .canvasbody {
+        max-width: 700px;
+        margin-left: 10%;
+        transform: translate(-10%);
+    }
 }
 
 .main .editbox .grid {
@@ -345,12 +415,11 @@ body {
     margin-bottom: 12px;
 }
 
-.main .editbox .ctrl-s,
-.sl {
+.main .editbox .ctrl-s {
     display: inline-block;
     border: 1px solid #6c757d;
     padding: 2px;
-    width: 222px;
+    min-width: 150px;
 }
 
 .main .editbox .ctrl .btg {
@@ -366,13 +435,17 @@ body {
     padding: 0 1em 0 0;
     margin: 0;
     width: 100%;
+    font-size: 14px;
     font-family: inherit;
-    font-size: inherit;
     cursor: inherit;
     line-height: inherit;
     outline: none;
     border: 1px dotted;
     color: #535050;
+}
+
+.main .editbox #ctrl-s {
+    height: 30px;
 }
 
 :not(.body) select::-ms-expand {
@@ -425,7 +498,7 @@ body {
     left: 50%;
     bottom: 100px;
     transform: translate(-50%) scale(.8);
-    width: 90%;
+    width: 96%;
     max-width: 500px;
     padding-bottom: 10px;
     background-color: #fff;
@@ -483,6 +556,7 @@ body {
     margin: auto;
     height: 300px;
     overflow-y: scroll;
+    overflow-x: hidden;
     user-select: none;
 }
 
@@ -500,9 +574,9 @@ body {
 .main .addnewbox .item div p {
     padding: 0 20px;
     margin-top: 10px;
-    font-size: 16px;
+    font-size: 15px;
     color: #333;
-    min-width: 130px;
+    min-width: 110px;
     max-width: 135px;
 }
 
@@ -527,8 +601,10 @@ body {
 
 .main .addnewbox .btngroup button,
 .main .idset button,
-.edit_property .abc .sl button,
-.main .editbox .ctrl button {
+.bx .abc .sl button,
+.main .editbox .ctrl button,
+.main .headbar .left button,
+.main .tx button {
     flex-grow: 1;
     margin-right: 10px;
     cursor: pointer;
@@ -554,9 +630,15 @@ body {
 
 .main .addnewbox .btngroup button:active,
 .main .idset button:active,
-.edit_property .abc .sl button:active,
-.main .editbox .ctrl button:active {
+.bx .abc .sl button:active,
+.main .editbox .ctrl button:active,
+.main .tx button:active {
     box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+}
+
+.main .tx button:first-child {
+    margin: 20px;
+    margin-left: 50px;
 }
 
 .main .idset span {
@@ -650,13 +732,78 @@ body {
     background-color: #fff;
 }
 
-.edit_property .abc {
+@media screen and (min-width: 700px) {
+    .bx {
+        max-width: 800px;
+        width: 90%;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    
+    .main .addnew {
+        right: 12%;
+    }
+}
+
+.tx {
+    display: none;
+}
+
+@media screen and (min-width: 1000px) {
+    .bx {
+        bottom: auto;
+        left: auto;
+        right: 0;
+        top: 116px;
+        width: 40%;
+        height: calc(100% - 100px);
+        max-width: 400px;
+        border-top-left-radius: 2rem;
+        padding-top: 25px;
+        transform: none;
+        box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+    }
+
+    .tx {
+        display: block;
+        position: fixed;
+        z-index: 100.5;
+        bottom: auto;
+        left: auto;
+        right: 0;
+        top: 116px;
+        width: 40%;
+        height: calc(100% - 100px);
+        background-color: #fff;
+        max-width: 400px;
+        border-top-left-radius: 2rem;
+        padding-top: 25px;
+        transform: none;
+        box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+    }
+
+    .bx:first-child {
+        display: block;
+    }
+
+    .bx span {
+        margin-top: 25px;
+    }
+
+    .main .addnew {
+        left: 50px;
+        right: none;
+    }
+}
+
+.bx .abc {
     padding: 14px;
     height: calc(100% - 25px);
     overflow-y: scroll;
 }
 
-.edit_property span {
+.bx span {
     position: absolute;
     right: 35px;
     top: 0px;
@@ -665,42 +812,52 @@ body {
     user-select: none;
 }
 
-.edit_property mark {
+.bx mark {
     margin: 0 15px;
     padding: 2px 7px;
 }
 
-.edit_property .abc h3 {
+.bx .abc h3 {
     margin: 0;
     padding: 0px 14px;
 }
 
-.edit_property .abc .sl {
+.bx .abc .sl {
+    display: inline-block;
+    border: 1px solid #6c757d;
+    padding: 2px;
+    max-width: 333px;
     margin: 16px 14px;
     display: flex;
-    width: 333px;
 }
 
-.edit_property .abc .sl input {
+.bx .abc .sl input {
     margin: 0;
 }
 
-.edit_property .abc .sl textarea {
+.bx .abc .sl textarea {
     width: 210px;
     resize: vertical;
     margin: 0;
 }
 
-.edit_property .abc .sl button {
+.bx .abc .sl button {
     padding: 6px 10px;
     height: 29px;
     margin: 1px 5px;
 }
 
-.edit_property .abc .sl select {
+.bx .abc .sl select {
     width: 220px;
 }
 
-.edit_property .abc .sl button:last-child {
+.bx .abc .sl button:last-child {
     background-color: rgba(50, 157, 167, 0.623);
+}
+
+.main .headbar .left button {
+    margin-left: auto;
+    margin-top: 10px;
+    flex: none;
+    float: right;
 }

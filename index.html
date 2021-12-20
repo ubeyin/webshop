@@ -38,13 +38,36 @@
             <div class="headbar">
                 <div class="left">
                     <h2>Webshop</h2>
+                    <button>Export</button>
                 </div>
                 <div class="right">
-                    <button>File</button>
-                    <button>Edit</button>
-                    <button>Filter</button>
-                    <button>Help</button>
-                    <button>Settings</button>
+                    <button>
+                        <span>File</span>
+                        <div>
+                           <p>Export as code</p>
+                           <p>Export as image</p>
+                        </div>
+                    </button>
+                    <button>
+                        <span>Edit</span>
+                        <div>
+                           <p>Delete</p>
+                           <p>Copy</p>
+                        </div>
+                    </button>
+                    <button>
+                        <span>Library</span>
+                        <div>
+                           <p>Import new style</p>
+                           <p>Import new script</p>
+                        </div>
+                    </button>
+                    <button>
+                        <span>Help</span>
+                    </button>
+                    <button>
+                        <span>Settings</span>
+                    </button>
                 </div>
             </div>
 
@@ -102,7 +125,7 @@
                         <div>
                             <img src="assets/img/img_listing.png" alt="">
                             <p>List</p>
-                            <span>An ordered/unordered list</span>
+                            <span>An ordered/ unordered list</span>
                         </div>
 
                     </div>
@@ -126,13 +149,18 @@
             <div id="snackbar">Waiting...</div>
             <!-- End: prompt -->
 
+            <div class="tx">
+                <button onclick="document.querySelectorAll('.main .canvasbody')[0].style.maxWidth = '700px';">Dekstop mode</button>
+                <button onclick="document.querySelectorAll('.main .canvasbody')[0].style.maxWidth = '400px';">Mobile mode</button>
+            </div>
+            
             <div class="edit_property bx" style="display: none;">
-                <span onclick="this.parentNode.style.display = 'none'">Close</span>
+                <span onclick="this.parentNode.style.display = 'none';document.querySelectorAll('.main .grid button')[0].classList.remove('active')">Close</span>
                 <mark>Layer: </mark>
                 <!-- header -->
                 <div class="abc">
                     <h3>Select header:</h3>
-                    <div class="sl">
+                    <div class="sl" style="width: 200px">
                         <select id="header_s">
                             <option value="0" selected>Header 1</option>
                             <option value="1">Header 2</option>
@@ -219,6 +247,16 @@
                     </div>
                 </div>
 
+            </div>
+
+            <div class="edit_style bx" style="display: none;">
+                <span onclick="this.parentNode.style.display = 'none';document.querySelectorAll('.main .grid button')[1].classList.remove('active')">Close</span>
+                <mark>Layer: </mark>
+                <!-- normal -->
+                <div class="abc">
+                    <h3>Normal style</h3>
+                    
+                </div>
             </div>
 
             <div class="editbox">

@@ -1,4 +1,5 @@
 let selected = false;
+let access = false;
 
 setInterval(() => {
 
@@ -33,7 +34,24 @@ setInterval(() => {
 
     }
 
-    document.querySelectorAll(".edit_property mark")[0].innerHTML = "Layer: " + (selected !== false ? selected.id : "");
+    for (let po = 0; po < document.querySelectorAll(".bx mark").length; po++) {
+        document.querySelectorAll(".bx mark")[po].innerHTML = "Layer: " + (selected !== false ? selected.id : "");
+    }
+
+    if (selected != false) {
+        access = true;
+    } else {
+        access = false;
+        document.querySelectorAll(".edit_property")[0].style.display = "none";
+        document.querySelectorAll(".edit_style")[0].style.display = "none";
+        const i = document.querySelectorAll(".editbox .grid button");
+        for (let l = 0; l < i.length; l++) {
+            i[l].classList.remove("active");
+            i[l].onclick = function () {
+                showAlert("First create an item for edit!");
+            };
+        }
+    }
 
 }, 10);
 
@@ -45,18 +63,33 @@ document.querySelectorAll(".btg button")[0].onclick = function () {
     }
 };
 
+for (let o = 0; o < document.querySelectorAll(".main .headbar .right button").length; o++) {
+    let state = false;
+    document.querySelectorAll(".main .headbar .right button span")[o].onclick = function () {
+        if (document.querySelectorAll(".main .headbar .right button")[o].querySelectorAll("div")[0]) {
+            if (state == false) {
+                document.querySelectorAll(".main .headbar .right button")[o].querySelectorAll("div")[0].style.display = "block";
+                state = true;
+            } else if (state == true) {
+                document.querySelectorAll(".main .headbar .right button")[o].querySelectorAll("div")[0].style.display = "none";
+                state = false;
+            }
+        }
+    };
+}
+
 function bottomBarAction() {
     const i = document.querySelectorAll(".editbox .grid button");
 
-    i[0].onclick = function () {
-        //
-    };
-
     for (let l = 0; l < i.length; l++) {
-        i[l].onclick = function () {
-            activeSwitch(l);
-            eval("buttonAction" + l + "();");
-        };
+        setInterval(() => {
+            i[l].onclick = function () {
+                if (access == true) {
+                    activeSwitch(l);
+                    eval("buttonAction" + l + "();");
+                }
+            };
+        }, 100);
     }
 
     function activeSwitch(index) {
@@ -215,11 +248,12 @@ function checkID(x, y) {
 
 function showAlert(a) {
     var x = document.getElementById("snackbar");
+    x.style.display = "";
     x.className = "show";
     x.innerHTML = a;
     setTimeout(function () {
-        x.className = x.className.replace("show", "");
-    }, 3000);
+        x.style.display = "none";
+    }, 1000);
 }
 
 
@@ -246,7 +280,7 @@ function buttonAction0() {
     } else {
         document.querySelectorAll(".edit_property")[0].style.display = "none";
     }
-
+    document.querySelectorAll(".edit_style")[0].style.display = "none";
 }
 
 function buttonAction0_part(i) {
@@ -255,6 +289,11 @@ function buttonAction0_part(i) {
     for (let hj = 0; hj < document.querySelectorAll(".edit_property .abc").length; hj++) {
         if (hj != i) document.querySelectorAll(".edit_property .abc")[hj].style.display = "none";
     }
+}
+
+function buttonAction1() {
+    document.querySelectorAll(".edit_style")[0].style.display = "";
+    document.querySelectorAll(".edit_property")[0].style.display = "none";
 }
 
 /*****************************/
@@ -418,7 +457,6 @@ function renderDataToAll(a) {
         };
     }
     /* list */
-    // ul.a {counter-reset: orderedlist;}
     if (selected.nodeName == "OL") {
         if (document.querySelectorAll(".abc")[4].querySelectorAll("button")[0].style.display == "") {
             document.querySelectorAll(".abc")[4].querySelectorAll("select option")[(selected.style.listStyleType != "circle" ? "0" : "1")].selected;
@@ -461,4 +499,28 @@ function renderDataToAll(a) {
             document.querySelectorAll(".abc")[4].querySelectorAll("select")[1].disabled = "true";
         };
     }
+}
+
+/*************************************/
+
+
+function DownloadFile(name, value, blobs) {
+    let DownloadName = name;
+    let text = value;
+    text = text.replace(/\n/g, "\r\n");
+    let blob = new Blob([text], {
+        type: blobs // text/plain
+    });
+    let anchor = document.createElement("a");
+    anchor.download = DownloadName;
+    anchor.href = window.URL.createObjectURL(blob);
+    anchor.target = "_blank";
+    anchor.style.display = "none";
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+}
+
+document.querySelectorAll(".main .headbar .left button")[0].onclick = function () {
+    DownloadFile("webshop-19032.html", document.querySelectorAll(".body")[0].innerHTML, "text/html");
 }
