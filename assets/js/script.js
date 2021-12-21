@@ -44,6 +44,7 @@ setInterval(() => {
         access = false;
         document.querySelectorAll(".edit_property")[0].style.display = "none";
         document.querySelectorAll(".edit_style")[0].style.display = "none";
+        document.querySelectorAll(".edit_color")[0].style.display = "none";
         const i = document.querySelectorAll(".editbox .grid button");
         for (let l = 0; l < i.length; l++) {
             i[l].classList.remove("active");
@@ -52,6 +53,8 @@ setInterval(() => {
             };
         }
     }
+
+    document.querySelectorAll("#preview")[0].value = document.querySelectorAll(".body")[0].innerHTML.replace(/\s+/g, ' ').trim();
 
 }, 10);
 
@@ -62,6 +65,10 @@ document.querySelectorAll(".btg button")[0].onclick = function () {
         selected = false;
     }
 };
+
+for (let hk = 0; hk < document.querySelectorAll(".abc input").length; hk++) {
+    document.querySelectorAll(".abc input")[hk].disabled = "true";
+}
 
 for (let o = 0; o < document.querySelectorAll(".main .headbar .right button").length; o++) {
     let state = false;
@@ -267,20 +274,24 @@ document.querySelectorAll("#header_s")[0].onchange = function () {
 
 function buttonAction0() {
     document.querySelectorAll(".edit_property")[0].style.display = "";
-    if (selected.nodeName == "H1") {
-        buttonAction0_part(0);
-    } else if (selected.nodeName == "IMG") {
-        buttonAction0_part(1);
-    } else if (selected.nodeName == "svg") {
-        buttonAction0_part(2);
-    } else if (selected.nodeName == "A") {
-        buttonAction0_part(3);
-    } else if (selected.nodeName == "OL") {
-        buttonAction0_part(4);
-    } else {
-        document.querySelectorAll(".edit_property")[0].style.display = "none";
-    }
+    setInterval(() => {
+        if (selected.nodeName == "H1") {
+            buttonAction0_part(0);
+        } else if (selected.nodeName == "IMG") {
+            buttonAction0_part(1);
+        } else if (selected.nodeName == "svg") {
+            buttonAction0_part(2);
+        } else if (selected.nodeName == "A") {
+            buttonAction0_part(3);
+        } else if (selected.nodeName == "OL") {
+            buttonAction0_part(4);
+        } else {
+            document.querySelectorAll(".edit_property")[0].style.display = "none";
+        }
+    }, 100);
+
     document.querySelectorAll(".edit_style")[0].style.display = "none";
+    document.querySelectorAll(".edit_color")[0].style.display = "none";
 }
 
 function buttonAction0_part(i) {
@@ -293,8 +304,40 @@ function buttonAction0_part(i) {
 
 function buttonAction1() {
     document.querySelectorAll(".edit_style")[0].style.display = "";
+    document.querySelectorAll(".edit_color")[0].style.display = "none";
     document.querySelectorAll(".edit_property")[0].style.display = "none";
 }
+
+function buttonAction4() {
+    document.querySelectorAll(".edit_color")[0].style.display = "";
+    document.querySelectorAll(".edit_style")[0].style.display = "none";
+    document.querySelectorAll(".edit_property")[0].style.display = "none";
+}
+
+Coloris({
+    el: '.color-plbox3',
+    swatches: [
+        '#264653',
+        '#2a9d8f',
+        '#e9c46a',
+        '#f4a261',
+        '#e76f51',
+        '#d62828',
+        '#023e8a',
+        '#0077b6',
+        '#0096c7',
+        '#00b4d8',
+        '#48cae4'
+    ]
+});
+
+document.querySelectorAll("#chng1")[0].onclick = function () {
+    selected.style.backgroundColor = document.querySelectorAll(".color-plbox3")[0].value;
+};
+
+document.querySelectorAll("#chng2")[0].onclick = function () {
+    selected.style.color = document.querySelectorAll(".color-plbox3")[0].value;
+};
 
 /*****************************/
 
@@ -499,6 +542,130 @@ function renderDataToAll(a) {
             document.querySelectorAll(".abc")[4].querySelectorAll("select")[1].disabled = "true";
         };
     }
+    /***********/
+    if (selected) {
+        if (document.querySelectorAll(".abc .styles")[0].querySelectorAll("button")[0].style.display == "") {
+
+            document.querySelectorAll(".abc .styles")[0].querySelectorAll("input")[0].value = (selected.style.width != "" ? selected.style.width : "0");
+
+            document.querySelectorAll(".abc .styles")[0].querySelectorAll("pre")[0].innerHTML = document.querySelectorAll(".abc .styles")[0].querySelectorAll("input")[0].value;
+
+        }
+
+        document.querySelectorAll(".abc .styles")[0].querySelectorAll("section")[0].onclick = function () {
+            selected.style.removeProperty('width');
+        };
+
+        document.querySelectorAll(".abc .styles")[0].querySelectorAll("input")[0].oninput = function () {
+            document.querySelectorAll(".abc .styles")[0].querySelectorAll("pre")[0].innerHTML = document.querySelectorAll(".abc .styles")[0].querySelectorAll("input")[0].value;
+            selected.style.width = document.querySelectorAll(".abc .styles")[0].querySelectorAll("input")[0].value;
+        }
+
+        document.querySelectorAll(".abc .styles")[0].querySelectorAll("button")[0].onclick = function () {
+            document.querySelectorAll(".abc .styles")[0].querySelectorAll("button")[0].style.display = "none";
+            document.querySelectorAll(".abc .styles")[0].querySelectorAll("button")[1].style.display = "";
+            document.querySelectorAll(".abc .styles")[0].querySelectorAll("input")[0].disabled = "";
+            document.querySelectorAll(".abc .styles")[0].querySelectorAll("input")[0].focus();
+        };
+        document.querySelectorAll(".abc .styles")[0].querySelectorAll("button")[1].onclick = function () {
+            selected.style.width = document.querySelectorAll(".abc .styles")[0].querySelectorAll("input")[0].value;
+            document.querySelectorAll(".abc .styles")[0].querySelectorAll("button")[0].style.display = "";
+            document.querySelectorAll(".abc .styles")[0].querySelectorAll("button")[1].style.display = "none";
+            document.querySelectorAll(".abc .styles")[0].querySelectorAll("input")[0].disabled = "true";
+        };
+
+        if (document.querySelectorAll(".abc .styles")[1].querySelectorAll("button")[0].style.display == "") {
+
+            document.querySelectorAll(".abc .styles")[1].querySelectorAll("input")[0].value = (selected.style.height != "" ? selected.style.height : "0");
+
+            document.querySelectorAll(".abc .styles")[1].querySelectorAll("pre")[0].innerHTML = document.querySelectorAll(".abc .styles")[1].querySelectorAll("input")[0].value;
+
+        }
+
+        document.querySelectorAll(".abc .styles")[1].querySelectorAll("section")[0].onclick = function () {
+            selected.style.removeProperty('height');
+        };
+
+        document.querySelectorAll(".abc .styles")[1].querySelectorAll("input")[0].oninput = function () {
+            document.querySelectorAll(".abc .styles")[1].querySelectorAll("pre")[0].innerHTML = document.querySelectorAll(".abc .styles")[1].querySelectorAll("input")[0].value;
+            selected.style.height = document.querySelectorAll(".abc .styles")[1].querySelectorAll("input")[0].value;
+        }
+
+        document.querySelectorAll(".abc .styles")[1].querySelectorAll("button")[0].onclick = function () {
+            document.querySelectorAll(".abc .styles")[1].querySelectorAll("button")[0].style.display = "none";
+            document.querySelectorAll(".abc .styles")[1].querySelectorAll("button")[1].style.display = "";
+            document.querySelectorAll(".abc .styles")[1].querySelectorAll("input")[0].disabled = "";
+            document.querySelectorAll(".abc .styles")[1].querySelectorAll("input")[0].focus();
+        };
+        document.querySelectorAll(".abc .styles")[1].querySelectorAll("button")[1].onclick = function () {
+            selected.style.height = document.querySelectorAll(".abc .styles")[1].querySelectorAll("input")[0].value;
+            document.querySelectorAll(".abc .styles")[1].querySelectorAll("button")[0].style.display = "";
+            document.querySelectorAll(".abc .styles")[1].querySelectorAll("button")[1].style.display = "none";
+            document.querySelectorAll(".abc .styles")[1].querySelectorAll("input")[0].disabled = "true";
+        };
+        /***/
+        if (document.querySelectorAll(".abc .styles")[2].querySelectorAll("button")[0].style.display == "") {
+
+            document.querySelectorAll(".abc .styles")[2].querySelectorAll("input")[0].value = (selected.style.margin != "" ? selected.style.margin : "0");
+
+            document.querySelectorAll(".abc .styles")[2].querySelectorAll("pre")[0].innerHTML = document.querySelectorAll(".abc .styles")[2].querySelectorAll("input")[0].value;
+
+        }
+
+        document.querySelectorAll(".abc .styles")[2].querySelectorAll("section")[0].onclick = function () {
+            selected.style.removeProperty('margin');
+        };
+
+        document.querySelectorAll(".abc .styles")[2].querySelectorAll("input")[0].oninput = function () {
+            document.querySelectorAll(".abc .styles")[2].querySelectorAll("pre")[0].innerHTML = document.querySelectorAll(".abc .styles")[2].querySelectorAll("input")[0].value;
+            selected.style.margin = document.querySelectorAll(".abc .styles")[2].querySelectorAll("input")[0].value;
+        }
+
+        document.querySelectorAll(".abc .styles")[2].querySelectorAll("button")[0].onclick = function () {
+            document.querySelectorAll(".abc .styles")[2].querySelectorAll("button")[0].style.display = "none";
+            document.querySelectorAll(".abc .styles")[2].querySelectorAll("button")[1].style.display = "";
+            document.querySelectorAll(".abc .styles")[2].querySelectorAll("input")[0].disabled = "";
+            document.querySelectorAll(".abc .styles")[2].querySelectorAll("input")[0].focus();
+        };
+        document.querySelectorAll(".abc .styles")[2].querySelectorAll("button")[1].onclick = function () {
+            selected.style.margin = document.querySelectorAll(".abc .styles")[2].querySelectorAll("input")[0].value;
+            document.querySelectorAll(".abc .styles")[2].querySelectorAll("button")[0].style.display = "";
+            document.querySelectorAll(".abc .styles")[2].querySelectorAll("button")[1].style.display = "none";
+            document.querySelectorAll(".abc .styles")[2].querySelectorAll("input")[0].disabled = "true";
+        };
+
+        if (document.querySelectorAll(".abc .styles")[3].querySelectorAll("button")[0].style.display == "") {
+
+            document.querySelectorAll(".abc .styles")[3].querySelectorAll("input")[0].value = (selected.style.padding != "" ? selected.style.padding : "0");
+
+            document.querySelectorAll(".abc .styles")[3].querySelectorAll("pre")[0].innerHTML = document.querySelectorAll(".abc .styles")[3].querySelectorAll("input")[0].value;
+
+        }
+
+        document.querySelectorAll(".abc .styles")[3].querySelectorAll("section")[0].onclick = function () {
+            selected.style.removeProperty('padding');
+        };
+
+        document.querySelectorAll(".abc .styles")[3].querySelectorAll("input")[0].oninput = function () {
+            document.querySelectorAll(".abc .styles")[3].querySelectorAll("pre")[0].innerHTML = document.querySelectorAll(".abc .styles")[3].querySelectorAll("input")[0].value;
+            selected.style.padding = document.querySelectorAll(".abc .styles")[3].querySelectorAll("input")[0].value;
+        }
+
+        document.querySelectorAll(".abc .styles")[3].querySelectorAll("button")[0].onclick = function () {
+            document.querySelectorAll(".abc .styles")[3].querySelectorAll("button")[0].style.display = "none";
+            document.querySelectorAll(".abc .styles")[3].querySelectorAll("button")[1].style.display = "";
+            document.querySelectorAll(".abc .styles")[3].querySelectorAll("input")[0].disabled = "";
+            document.querySelectorAll(".abc .styles")[3].querySelectorAll("input")[0].focus();
+        };
+        document.querySelectorAll(".abc .styles")[3].querySelectorAll("button")[1].onclick = function () {
+            selected.style.padding = document.querySelectorAll(".abc .styles")[3].querySelectorAll("input")[0].value;
+            document.querySelectorAll(".abc .styles")[3].querySelectorAll("button")[0].style.display = "";
+            document.querySelectorAll(".abc .styles")[3].querySelectorAll("button")[1].style.display = "none";
+            document.querySelectorAll(".abc .styles")[3].querySelectorAll("input")[0].disabled = "true";
+        };
+
+    }
+
 }
 
 /*************************************/

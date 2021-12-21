@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webshop: ubeyin</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/coloris.css">
+    <script src="assets/js/coloris.js"></script>
 </head>
 
 <body>
@@ -44,22 +46,22 @@
                     <button>
                         <span>File</span>
                         <div>
-                           <p>Export as code</p>
-                           <p>Export as image</p>
+                            <p>Export as code</p>
+                            <p>Export as image</p>
                         </div>
                     </button>
                     <button>
                         <span>Edit</span>
                         <div>
-                           <p>Delete</p>
-                           <p>Copy</p>
+                            <p>Delete</p>
+                            <p>Copy</p>
                         </div>
                     </button>
                     <button>
                         <span>Library</span>
                         <div>
-                           <p>Import new style</p>
-                           <p>Import new script</p>
+                            <p>Import new style</p>
+                            <p>Import new script</p>
                         </div>
                     </button>
                     <button>
@@ -150,12 +152,20 @@
             <!-- End: prompt -->
 
             <div class="tx">
-                <button onclick="document.querySelectorAll('.main .canvasbody')[0].style.maxWidth = '700px';">Dekstop mode</button>
-                <button onclick="document.querySelectorAll('.main .canvasbody')[0].style.maxWidth = '400px';">Mobile mode</button>
+                <button onclick="document.querySelectorAll('.main .canvasbody')[0].style.maxWidth = '700px';">Dekstop
+                    mode</button>
+                <button onclick="document.querySelectorAll('.main .canvasbody')[0].style.maxWidth = '400px';">Mobile
+                    mode</button>
+
+
+                <textarea id="preview">
+                       loading...
+                </textarea>
             </div>
-            
+
             <div class="edit_property bx" style="display: none;">
-                <span onclick="this.parentNode.style.display = 'none';document.querySelectorAll('.main .grid button')[0].classList.remove('active')">Close</span>
+                <span
+                    onclick="this.parentNode.style.display = 'none';document.querySelectorAll('.main .grid button')[0].classList.remove('active')">Close</span>
                 <mark>Layer: </mark>
                 <!-- header -->
                 <div class="abc">
@@ -226,10 +236,10 @@
                 <div class="abc">
                     <h3>List type</h3>
                     <div class="sl">
-                       <select disabled="true">
-                           <option value="0" selected>Ordered</option>
-                           <option value="circle">Unordered</option>
-                       </select>
+                        <select disabled="true">
+                            <option value="0" selected>Ordered</option>
+                            <option value="circle">Unordered</option>
+                        </select>
                         <button>change</button>
                         <button style="display: none;">okay</button>
                     </div>
@@ -250,13 +260,86 @@
             </div>
 
             <div class="edit_style bx" style="display: none;">
-                <span onclick="this.parentNode.style.display = 'none';document.querySelectorAll('.main .grid button')[1].classList.remove('active')">Close</span>
+                <span
+                    onclick="this.parentNode.style.display = 'none';document.querySelectorAll('.main .grid button')[1].classList.remove('active')">Close</span>
                 <mark>Layer: </mark>
                 <!-- normal -->
                 <div class="abc">
                     <h3>Normal style</h3>
-                    
+                    <div class="styles">
+                        <p>Width</p>
+                        <div>
+                            <input type="text" value="0px" disabled="true" />
+                            <pre>10px</pre>
+                        </div>
+                        <button>Change</button>
+                        <button style="display: none;">Okay</button>
+                        <section>set auto</section>
+                    </div>
+                    <div class="styles">
+                        <p>Height</p>
+                        <div>
+                            <input type="text" value="0px" disabled="true" />
+                            <pre>10px</pre>
+                        </div>
+                        <button>Change</button>
+                        <button style="display: none;">Okay</button>
+                        <section>set auto</section>
+                    </div>
+                    <div class="styles">
+                        <p>Margin</p>
+                        <div>
+                            <input type="text" placeholder="top right bottom left" disabled="true" />
+                            <pre>10px</pre>
+                        </div>
+                        <button>Change</button>
+                        <button style="display: none;">Okay</button>
+                        <section>set auto</section>
+                    </div>
+                    <div class="styles">
+                        <p>Padding</p>
+                        <div>
+                            <input type="text" placeholder="top right bottom left" disabled="true" />
+                            <pre>10px</pre>
+                        </div>
+                        <button>Change</button>
+                        <button style="display: none;">Okay</button>
+                        <section>set auto</section>
+                    </div>
                 </div>
+            </div>
+
+            <div class="edit_color bx" style="display: none;">
+                <span
+                    onclick="this.parentNode.style.display = 'none';document.querySelectorAll('.main .grid button')[1].classList.remove('active')">Close</span>
+                <mark>Layer: </mark>
+                <!-- normal -->
+                <div class="abcd">
+                    <h3>Theme Colors</h3>
+                    <div class="color-plbox1"
+                        style="background: rgba(0, 0, 0, 0) url(&quot;/assets/img/color.png&quot;) repeat scroll 0% 0%;">
+                    </div>
+                    <input class="color-plbox3" />
+                    <button id="chng1">Change background</button>
+                    <button id="chng2">Change text color</button>
+                    <h3>Default</h3>
+                    <div class="color-plbox2">
+                        <div style="background-color: rgb(249, 83, 80);"></div>
+                        <div style="background-color: rgb(255, 210, 58);"></div>
+                        <div style="background-color: rgb(249, 246, 61);"></div>
+                        <div style="background-color: rgb(153, 212, 79);"></div>
+                        <div style="background-color: rgb(23, 181, 84);"></div>
+                        <div style="background-color: rgb(0, 175, 245);"></div>
+                        <div style="background-color: rgb(103, 221, 240);"></div>
+                        <div style="background-color: rgb(107, 110, 255);"></div>
+                        <div style="background-color: rgb(255, 107, 182);"></div>
+                        <div style="background-color: rgb(0, 0, 0);"></div>
+                        <div style="background-color: rgb(112, 112, 112);"></div>
+                        <div style="background-color: rgb(200, 200, 200);"></div>
+                        <div style="background-color: rgb(255, 255, 255);"></div>
+                    </div>
+                </div>
+
             </div>
 
             <div class="editbox">
@@ -268,16 +351,22 @@
                         </select>
                     </div>
                     <div class="btg">
-                        <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                          </svg></button>
-                        <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h13A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5v-9zM1.5 3a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"/>
-                            <path d="M8 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5v-3z"/>
-                          </svg></button>
+                        <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                <path fill-rule="evenodd"
+                                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                            </svg></button>
+                        <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M0 3.5A1.5 1.5 0 0 1 1.5 2h13A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5v-9zM1.5 3a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z" />
+                                <path
+                                    d="M8 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5v-3z" />
+                            </svg></button>
                     </div>
-                    
+
                 </div>
                 <div class="grid">
                     <button>
