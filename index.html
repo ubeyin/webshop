@@ -8,14 +8,9 @@
     <title>Webshop: ubeyin</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/coloris.css">
-    <script src="assets/js/coloris.js"></script>
 </head>
 
 <body>
-    <style>
-
-    </style>
-
     <div class="err0x0" style="display: none;">
         <h2>Please use your device that's width is greater than <mark>300</mark> pixel for better performace.</h2>
     </div>
@@ -40,7 +35,6 @@
             <div class="headbar">
                 <div class="left">
                     <h2>Webshop</h2>
-                    <button>Export</button>
                 </div>
                 <div class="right">
                     <button>
@@ -58,7 +52,7 @@
                         </div>
                     </button>
                     <button>
-                        <span>Library</span>
+                        <span>New</span>
                         <div>
                             <p>Import new style</p>
                             <p>Import new script</p>
@@ -80,7 +74,7 @@
             </div>
             <!-- start: Prompt -->
             <div class="addnew"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-plus-lg" viewBox="0 0 16 16">
+                    viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
                         d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
                 </svg></div>
@@ -90,46 +84,71 @@
                     <h2>Add new item</h2>
                     <p>Create new tags and customize them by any tools quickly.</p>
                     <div class="item">
-                        <h3>Texting</h3>
-                        <div>
-                            <img src="assets/img/img_texting.png" alt="">
-                            <p>Header</p>
-                            <span>Create a heading text</span>
-                        </div>
-                        <div>
-                            <img src="assets/img/img_texting.png" alt="">
-                            <p>Paragraph</p>
-                            <span>Create a paragraph text</span>
-                        </div>
-                        <h3>Imaging</h3>
-                        <div>
-                            <img src="assets/img/img_imaging.png" alt="">
-                            <p>Image</p>
-                            <span>Create an Image show</span>
-                        </div>
-                        <div>
-                            <img src="assets/img/img_imaging.png" alt="">
-                            <p>Canvas</p>
-                            <span>Create an area to draw using script</span>
-                        </div>
-                        <div>
-                            <img src="assets/img/img_imaging.png" alt="">
-                            <p>SVG</p>
-                            <span>Create a container for SVG image</span>
-                        </div>
-                        <h3>Linking</h3>
-                        <div>
-                            <img src="assets/img/img_linking.png" alt="">
-                            <p>Link</p>
-                            <span>A hyperlink text</span>
-                        </div>
-                        <h3>Listing</h3>
-                        <div>
-                            <img src="assets/img/img_listing.png" alt="">
-                            <p>List</p>
-                            <span>An ordered/ unordered list</span>
-                        </div>
+                        <button type="button" class="collapsible">Visual Elements</button>
+                        <article class="content" style="display: none;">
+                            <div>
+                                <img src="assets/img/i/an-1.png" alt="Text">
+                                <p>Text</p>
+                            </div>
+                            <div>
 
+                                <img src="assets/img/i/an-2.png" alt="Text">
+                                <p>Button</p>
+                            </div>
+                            <div>
+                                <img src="assets/img/i/an-3.png" alt="Text">
+                                <p>Image</p>
+                            </div>
+                            <div>
+                                <img src="assets/img/i/an-4.png" alt="Text">
+                                <p>Audio</p>
+                            </div>
+                            <div>
+                                <img src="assets/img/i/an-5.png" alt="Text">
+                                <p>Video</p>
+                            </div>
+                            <div>
+                                <img src="assets/img/i/an-6.png" alt="Text">
+                                <p>Link</p>
+                            </div>
+                        </article>
+                        <p></p>
+                        <button type="button" class="collapsible">Formal Elements</button>
+                        <article class="content" style="display: none;">
+                            <div>
+                                <img src="assets/img/i/an-7.png" alt="Text">
+                                <p>Input</p>
+                            </div>
+                            <div>
+
+                                <img src="assets/img/i/an-8.png" alt="Text">
+                                <p>Textarea</p>
+                            </div>
+                            <div>
+                                <img src="assets/img/i/an-9.png" alt="Text">
+                                <p>Checkbox</p>
+                            </div>
+                            <div>
+                                <img src="assets/img/i/an-10.png" alt="Text">
+                                <p>Dropdown</p>
+                            </div>
+                            <div>
+                                <img src="assets/img/i/an-11.png" alt="Text">
+                                <p>Radio Button</p>
+                            </div>
+                            <div>
+                                <img src="assets/img/i/an-12.png" alt="Text">
+                                <p>Slider Input</p>
+                            </div>
+                            <div>
+                                <img src="assets/img/i/an-13.png" alt="Text">
+                                <p>Date/Time Picker</p>
+                            </div>
+                            <div>
+                                <img src="assets/img/i/an-14.png" alt="Text">
+                                <p>File Uploader</p>
+                            </div>
+                        </article>
                     </div>
                     <div class="btngroup">
                         <button>Select</button>
@@ -157,105 +176,13 @@
                 <button onclick="document.querySelectorAll('.main .canvasbody')[0].style.maxWidth = '400px';">Mobile
                     mode</button>
 
-
-                <textarea id="preview">
-                       loading...
-                </textarea>
+                <textarea id="preview" disabled="true"></textarea>
             </div>
 
             <div class="edit_property bx" style="display: none;">
                 <span
                     onclick="this.parentNode.style.display = 'none';document.querySelectorAll('.main .grid button')[0].classList.remove('active')">Close</span>
                 <mark>Layer: </mark>
-                <!-- header -->
-                <div class="abc">
-                    <h3>Select header:</h3>
-                    <div class="sl" style="width: 200px">
-                        <select id="header_s">
-                            <option value="0" selected>Header 1</option>
-                            <option value="1">Header 2</option>
-                            <option value="2">Header 3</option>
-                            <option value="3">Header 4</option>
-                            <option value="4">Header 5</option>
-                            <option value="5">Header 6</option>
-                        </select>
-                    </div>
-                </div>
-                <!-- image -->
-                <div class="abc">
-                    <h3>Image links</h3>
-                    <div class="sl">
-                        <input type="url" placeholder="https://" disabled="true">
-                        <button>change</button>
-                        <button style="display: none;">okay</button>
-                    </div>
-                    <h3>Image text</h3>
-                    <div class="sl">
-                        <input type="text" placeholder="offline text of the image" disabled="true">
-                        <button>change</button>
-                        <button style="display: none;">okay</button>
-                    </div>
-                </div>
-                <!-- svg -->
-                <div class="abc">
-                    <h3>SVG viewbox</h3>
-                    <div class="sl">
-                        <input type="tel" placeholder="0 0 16 16" disabled="true">
-                        <button>change</button>
-                        <button style="display: none;">okay</button>
-                    </div>
-                    <h3>SVG fill</h3>
-                    <div class="sl">
-                        <input type="text" placeholder="currentColor" disabled="true">
-                        <button>change</button>
-                        <button style="display: none;">okay</button>
-                    </div>
-                    <h3>inner HTML</h3>
-                    <div class="sl">
-                        <textarea cols="30" rows="10" disabled="true">...</textarea>
-                        <button>change</button>
-                        <button style="display: none;">okay</button>
-                    </div>
-                </div>
-                <!-- link -->
-                <div class="abc">
-                    <h3>Link href</h3>
-                    <div class="sl">
-                        <input type="url" placeholder="https:// or tel:+0" disabled="true">
-                        <button>change</button>
-                        <button style="display: none;">okay</button>
-                    </div>
-                    <h3>Link target</h3>
-                    <div class="sl">
-                        <input type="text" placeholder="_blank" disabled="true">
-                        <button>change</button>
-                        <button style="display: none;">okay</button>
-                    </div>
-                </div>
-                <!-- list -->
-                <div class="abc">
-                    <h3>List type</h3>
-                    <div class="sl">
-                        <select disabled="true">
-                            <option value="0" selected>Ordered</option>
-                            <option value="circle">Unordered</option>
-                        </select>
-                        <button>change</button>
-                        <button style="display: none;">okay</button>
-                    </div>
-                    <h3>List index</h3>
-                    <div class="sl">
-                        <select disabled="true">
-                            <option value="0">1</option>
-                            <option value="1">A</option>
-                            <option value="2">a</option>
-                            <option value="3">I</option>
-                            <option value="4">i</option>
-                        </select>
-                        <button>change</button>
-                        <button style="display: none;">okay</button>
-                    </div>
-                </div>
 
             </div>
 
@@ -263,50 +190,21 @@
                 <span
                     onclick="this.parentNode.style.display = 'none';document.querySelectorAll('.main .grid button')[1].classList.remove('active')">Close</span>
                 <mark>Layer: </mark>
-                <!-- normal -->
-                <div class="abc">
-                    <h3>Normal style</h3>
-                    <div class="styles">
-                        <p>Width</p>
-                        <div>
-                            <input type="text" value="0px" disabled="true" />
-                            <pre>10px</pre>
-                        </div>
-                        <button>Change</button>
-                        <button style="display: none;">Okay</button>
-                        <section>set auto</section>
-                    </div>
-                    <div class="styles">
-                        <p>Height</p>
-                        <div>
-                            <input type="text" value="0px" disabled="true" />
-                            <pre>10px</pre>
-                        </div>
-                        <button>Change</button>
-                        <button style="display: none;">Okay</button>
-                        <section>set auto</section>
-                    </div>
-                    <div class="styles">
-                        <p>Margin</p>
-                        <div>
-                            <input type="text" placeholder="top right bottom left" disabled="true" />
-                            <pre>10px</pre>
-                        </div>
-                        <button>Change</button>
-                        <button style="display: none;">Okay</button>
-                        <section>set auto</section>
-                    </div>
-                    <div class="styles">
-                        <p>Padding</p>
-                        <div>
-                            <input type="text" placeholder="top right bottom left" disabled="true" />
-                            <pre>10px</pre>
-                        </div>
-                        <button>Change</button>
-                        <button style="display: none;">Okay</button>
-                        <section>set auto</section>
-                    </div>
-                </div>
+
+            </div>
+
+            <div class="edit_text bx" style="display: none;">
+                <span
+                    onclick="this.parentNode.style.display = 'none';document.querySelectorAll('.main .grid button')[0].classList.remove('active')">Close</span>
+                <mark>Layer: </mark>
+
+            </div>
+
+            <div class="edit_size bx" style="display: none;">
+                <span
+                    onclick="this.parentNode.style.display = 'none';document.querySelectorAll('.main .grid button')[1].classList.remove('active')">Close</span>
+                <mark>Layer: </mark>
+
             </div>
 
             <div class="edit_color bx" style="display: none;">
@@ -339,6 +237,13 @@
                         <div style="background-color: rgb(255, 255, 255);"></div>
                     </div>
                 </div>
+
+            </div>
+
+            <div class="edit_event bx" style="display: none;">
+                <span
+                    onclick="this.parentNode.style.display = 'none';document.querySelectorAll('.main .grid button')[1].classList.remove('active')">Close</span>
+                <mark>Layer: </mark>
 
             </div>
 
@@ -421,6 +326,7 @@
 
     </div>
 
+    <script src="assets/js/app.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 
